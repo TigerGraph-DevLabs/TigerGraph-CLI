@@ -1,0 +1,2685 @@
+{
+    "RequestID": "97148b6d-f863-4c91-88d6-1aa0ef80c770",
+    "Error": false,
+    "Message": "get solution meta successfully",
+    "ErrorDetails": null,
+    "Result": {
+        "CloudPlatforms": [
+            {
+            "Available": true,
+            "Description": "Amazon Web Services",
+            "DiskSize": {
+                "EnableInputBox": true,
+                "MaxGB": 2500,
+                "MinGB": 50,
+                "Options": [50, 128, 256, 512, 1024, 2048]
+            },
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/Amazon_Web_Services_Logo.svg",
+            "Name": "AWS",
+            "SupportedRegions": [{
+                "Description": "North California, US West",
+                "Name": "N. Cal",
+                "Value": "us-west-1"
+            }, {
+                "Description": "Tokyo, Japan, Asia",
+                "Name": "Tokyo",
+                "Value": "ap-northeast-1"
+            }, {
+                "Description": "Frankfurt, Europe",
+                "Name": "Frankfurt",
+                "Value": "eu-central-1"
+            }, {
+                "Description": "Ireland, Europe",
+                "Name": "Ireland",
+                "Value": "eu-west-1"
+            }, {
+                "Description": "London, Europe",
+                "Name": "London",
+                "Value": "eu-west-2"
+            }, {
+                "Description": "N. Virginia, US East",
+                "Name": "N. Virginia",
+                "Value": "us-east-1"
+            }],
+            "Value": "aws"
+        }, {
+            "Available": true,
+            "Description": "Microsoft Azure: Cloud Computing Service",
+            "DiskSize": {
+                "EnableInputBox": false,
+                "MaxGB": 2500,
+                "MinGB": 50,
+                "Options": [128, 256, 512, 1024, 2048]
+            },
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/Microsoft_Azure_Logo.svg",
+            "Name": "Azure",
+            "SupportedRegions": [{
+                "Description": "Amsterdam, Netherlands",
+                "Name": "West Europe",
+                "Value": "westeurope"
+            }, {
+                "Description": "California, US West",
+                "Name": "West US",
+                "Value": "westus"
+            }],
+            "Value": "azure"
+        }, {
+            "Available": false,
+            "Description": "Google Cloud Platform",
+            "DiskSize": {
+                "EnableInputBox": false,
+                "MaxGB": 2500,
+                "MinGB": 50,
+                "Options": [128, 256, 512, 1024, 2048]
+            },
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/Google_Cloud_Logo.svg",
+            "Name": "GCP",
+            "SupportedRegions": [],
+            "Value": "aws"
+        }],
+        "InstanceTypes": [{
+            "Name": "TG.Free",
+            "Description": "4 vCPU, 7.5GB Memory",
+            "PlatformToType": {
+                "aws": "c4.xlarge"
+            },
+            "Tip": "Always free, and yours to keep as long as you're using it each month.",
+            "DetailLink": "https://www.tigergraph.com/terms/",
+            "CentsPerHourPerGBPerDisk": 0,
+            "CentsPerHourPerInstance": 0,
+            "CentsPerHourPerGBBackup": 0,
+            "NumVCPU": 8,
+            "Index": 0
+        }, {
+            "Name": "TG.C4.M16",
+            "Description": "4 vCPU, 16GB Memory",
+            "PlatformToType": {
+                "aws": "m5.xlarge"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 120,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 4,
+            "Index": 1
+        }, {
+            "Name": "TG.C8.M15",
+            "Description": "8 vCPU, 15GB Memory",
+            "PlatformToType": {
+                "aws": "c4.2xlarge"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 180,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 8,
+            "Index": 2
+        }, {
+            "Name": "TG.C8.M16",
+            "Description": "8 vCPU, 16GB Memory",
+            "PlatformToType": {
+                "azure": "Standard_F8s_v2"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 180,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 8,
+            "Index": 2
+        }, {
+            "Name": "TG.C8.M32",
+            "Description": "8 vCPU, 32GB Memory",
+            "PlatformToType": {
+                "aws": "m5.2xlarge",
+                "azure": "Standard_D8s_v3"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 220,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 8,
+            "Index": 3
+        }, {
+            "Name": "TG.C16.M64",
+            "Description": "16 vCPU, 64GB Memory",
+            "PlatformToType": {
+                "aws": "m5.4xlarge",
+                "azure": "Standard_D16s_v3"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 410,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 16,
+            "Index": 4
+        }, {
+            "Name": "TG.C16.M122",
+            "Description": "16 vCPU, 122GB Memory",
+            "PlatformToType": {
+                "aws": "r4.4xlarge"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 700,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 16,
+            "Index": 5
+        }, {
+            "Name": "TG.C16.M128",
+            "Description": "16 vCPU, 128GB Memory",
+            "PlatformToType": {
+                "azure": "Standard_E16s_v3"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.104166667,
+            "CentsPerHourPerInstance": 700,
+            "CentsPerHourPerGBBackup": 0,
+            "NumVCPU": 16,
+            "Index": 5
+        }, {
+            "Name": "TG.C32.M244",
+            "Description": "32 vCPU, 244GB Memory",
+            "PlatformToType": {
+                "aws": "r4.8xlarge"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 1200,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 32,
+            "Index": 6
+        }, {
+            "Name": "TG.C32.M256",
+            "Description": "32 vCPU, 256GB Memory",
+            "PlatformToType": {
+                "azure": "Standard_E32s_v3"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 1220,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 32,
+            "Index": 6
+        }, {
+            "Name": "TG.C64.M488",
+            "Description": "64 vCPU, 488GB Memory",
+            "PlatformToType": {
+                "aws": "r4.16xlarge"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 2100,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 64,
+            "Index": 7
+        }, {
+            "Name": "TG.C96.M768",
+            "Description": "96 vCPU, 768GB Memory",
+            "PlatformToType": {
+                "aws": "r5.24xlarge"
+            },
+            "Tip": null,
+            "DetailLink": null,
+            "CentsPerHourPerGBPerDisk": 0.02083,
+            "CentsPerHourPerInstance": 3000,
+            "CentsPerHourPerGBBackup": 0.17361,
+            "NumVCPU": 96,
+            "Index": 8
+        }],
+        "StarterKits": [
+            {
+            "Name": "Data Lineage v3",
+            "Version": "3.0.6",
+            "Description": "Improve data governance with the ability to trace information back to its source",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Pedigree+Chart_151012.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "data-lineage",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-08de38edf96944ac5",
+                "eu-central-1": "ami-0326a046fe385a0f0",
+                "eu-west-1": "ami-0f884f4243096fd7b",
+                "eu-west-2": "ami-07e2c52baa9db2d2f",
+                "us-east-1": "ami-06171e788ea17bbbe",
+                "us-west-1": "ami-0d39164b5c470a3cb"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-data-lineage-single-node-westeurope-1608072297",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-data-lineage-single-node-westus-1608071219"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/data-lineage.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/dataLineage_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Financial Services (Payments) - Fraud Detection v3",
+            "Version": "3.0.6",
+            "Description": "Detect and stop fraudulent payments in real-time",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_fraud+protection_2102650.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "payment-fraud-detection",
+            "Categories": "Anti-Fraud",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0e3253822d0dc5558",
+                "eu-central-1": "ami-0779a49274b442d59",
+                "eu-west-1": "ami-0093f1f42f57fe2ef",
+                "eu-west-2": "ami-05e4e8b9ac73e76f1",
+                "us-east-1": "ami-0bd56617ce8cd6de5",
+                "us-west-1": "ami-0ec351a371f5ffe68"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-payment-fraud-detection-single-node-westeurope-1608072256",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-payment-fraud-detection-single-node-westus-1608071218"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/financial-services.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/financial-services_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Blank",
+            "Version": "2.6.4",
+            "Description": "No pre-populated schema, dataset or queries",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_blank+presentation+board_1497803.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "blank",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0c606f61a8e8f869c",
+                "eu-central-1": "ami-014aff976760cb7cc",
+                "eu-west-1": "ami-0b3a2ce02fb797ee1",
+                "eu-west-2": "ami-0a1e293d31360cc0e",
+                "us-east-1": "ami-0c8f5b9b3dc17e9ba",
+                "us-west-1": "ami-076784df00ff09254"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-single-node-westeurope-1607976658",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-single-node-westus-1607976638"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "",
+            "DataURL": "",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "GSQL 101",
+            "Version": "2.6.4",
+            "Description": "TigerGraph Introductory Solution",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_tutorial_2366933.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "gsql101",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0aa6cd5feeb23a0c1",
+                "eu-central-1": "ami-057a00eb68ad51abf",
+                "eu-west-1": "ami-06edd2fdaaa23ed3b",
+                "eu-west-2": "ami-0affbc00237fd8bf4",
+                "us-east-1": "ami-020f3ea3aeb18d79a",
+                "us-west-1": "ami-0ae11dc2fc24a69b5"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-gsql101-single-node-westeurope-1607976628",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-gsql101-single-node-westus-1607976508"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/gsql101-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/gsql101-data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Network and IT Resource Optimization",
+            "Version": "2.6.4",
+            "Description": "Network and IT resource graph for modeling and analyzing the impact of the hardware outage on workloads",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_infrastructure_117239.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "hardware-impact-analysis",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0276fc14ce09958b7",
+                "eu-central-1": "ami-04848879a7e492401",
+                "eu-west-1": "ami-07031d68565e1f519",
+                "eu-west-2": "ami-057e07fffdb05d4ab",
+                "us-east-1": "ami-005a94e5d5c2bfee6",
+                "us-west-1": "ami-0fec6090cfd594851"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-hardware-impact-analysis-single-node-westeurope-1607976498",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-hardware-impact-analysis-single-node-westus-1607976468"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/visa-network-impact.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/visa-network-impact-cloud_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Recommendation Engine (Movie Recommendation)",
+            "Version": "2.6.4",
+            "Description": "Graph-based movie recommendation engine built with public data",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_recommendation_305580.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "movie-recommend",
+            "Categories": "Recommendations",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0497918ddf65af7ce",
+                "eu-central-1": "ami-08917a4d84d69c82f",
+                "eu-west-1": "ami-01a4ff90ef98ae66c",
+                "eu-west-2": "ami-0d755e1a7da68c80c",
+                "us-east-1": "ami-018f35268df92461c",
+                "us-west-1": "ami-0f31374b0c4958b7e"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-movie-recommend-single-node-westeurope-1607976468",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-movie-recommend-single-node-westus-1607976398"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/movie-rec.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/movie-rec_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Recommendation Engine 2.0 (Hyper-Personalized Marketing) ",
+            "Version": "2.6.4",
+            "Description": "Hyper-personalized recommendation engine to create dynamic offers in real-time for higher click-through and revenue",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_recommendation_305580.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "recommend-engine",
+            "Categories": "Recommendations",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-06f4e77c2878e5710",
+                "eu-central-1": "ami-034c6bcaee9bb1efa",
+                "eu-west-1": "ami-08d65cd04ee456032",
+                "eu-west-2": "ami-03f80a23bcf75c547",
+                "us-east-1": "ami-0389d13f93bf29ea8",
+                "us-west-1": "ami-01df64b3a5cbc8420"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-recommend-engine-single-node-westeurope-1607976388",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-recommend-engine-single-node-westus-1607976388"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/recomendation2.0_solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/recommendation2.0_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Machine Learning and Real-time Fraud Detection",
+            "Version": "2.6.4",
+            "Description": "Mobile industry example for detecting fraud in real-time and generating graph-based features for training the machine learning solution ",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Machine+Learning_2010152.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "ml-antifraud",
+            "Categories": "Machine Learning,Anti-Fraud",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-07be8ec31ea45b3b7",
+                "eu-central-1": "ami-08720ad7ba3a64719",
+                "eu-west-1": "ami-064fc0f8bd0ee3e28",
+                "eu-west-2": "ami-00d924a179e6883ee",
+                "us-east-1": "ami-061e8bb36c7b25a95",
+                "us-west-1": "ami-07781698394a50348"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-antifraud-single-node-westeurope-1607976378",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-antifraud-single-node-westus-1607976348"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/chinaMobile.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/china-mobile_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Supply Chain Analysis",
+            "Version": "2.6.4",
+            "Description": "Example covering inventory planning and impact analysis",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Supply+Chain_1271146.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "supplychain",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0436bb510bf9a579f",
+                "eu-central-1": "ami-0144e1e9976ac9a06",
+                "eu-west-1": "ami-068cf27440b1217b7",
+                "eu-west-2": "ami-01438867ba5ea3618",
+                "us-east-1": "ami-0ab38f8431e9ba0e9",
+                "us-west-1": "ami-0ed0d26404dd612a2"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-supplychain-single-node-westeurope-1607976348",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-supplychain-single-node-westus-1607976338"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/supplychain-solution-2.4.tgz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/supplychain-data.tgz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Fraud and Money Laundering Detection (Fin. Services)",
+            "Version": "2.6.4",
+            "Description": "Payments graph for detecting multiple types of fraud and money laundering patterns",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_fraud+prevention_2486998.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "anti-money-laundring",
+            "Categories": "Anti-Fraud",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-09d45fe6531d4bc33",
+                "eu-central-1": "ami-08a33207be4e5db23",
+                "eu-west-1": "ami-09f7879605bfc75df",
+                "eu-west-2": "ami-0fb30699132382471",
+                "us-east-1": "ami-07448c36115e46d96",
+                "us-west-1": "ami-0cf3f8a65fafd7cf0"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-anti-money-laundring-single-node-westeurope-1607976318",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-anti-money-laundring-single-node-westus-1607976318"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/antifraud-cloud.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/antifraud-cloud_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Social Network Analysis",
+            "Version": "2.6.4",
+            "Description": "Social network example for understanding and analyzing relationships",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_networking_2146368.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "socialgraph",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0543b96db022aa209",
+                "eu-central-1": "ami-02dc4ea21c9584c33",
+                "eu-west-1": "ami-0df8b6f73dbba8089",
+                "eu-west-2": "ami-0132211544ea30a2b",
+                "us-east-1": "ami-0901800718806544d",
+                "us-west-1": "ami-02691a644cf39d308"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-socialgraph-single-node-westeurope-1607976318",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-socialgraph-single-node-westus-1607976268"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/socialgraph-solution-2.4.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/socialgraph-data-small.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Enterprise Knowledge Graph (Crunchbase)",
+            "Version": "2.6.4",
+            "Description": "Knowledge Graph example featuring Crunchbase data with startups, founders and companies",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_connection_1560042.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "knowledge-graph-crunchbase",
+            "Categories": "Knowledge Graph",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0dca36067e36dc7b0",
+                "eu-central-1": "ami-0b6ff3d79326ddc2f",
+                "eu-west-1": "ami-073daba6e8090e4a8",
+                "eu-west-2": "ami-01d13375a3857ea37",
+                "us-east-1": "ami-01ea3fa876d55142c",
+                "us-west-1": "ami-0fe52427670fdacea"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-knowledge-graph-crunchbase-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-knowledge-graph-crunchbase-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/crunchbase-solution-2.4.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/crunchbase-data-small.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Enterprise Knowledge Graph (Corporate)",
+            "Version": "2.6.4",
+            "Description": "Knowledge Graph example featuring corporates",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_corporate_2279873.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "knowledge-graph-corporate",
+            "Categories": "Knowledge Graph",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-018c8a1e2ddbe7310",
+                "eu-central-1": "ami-0504286ef69841185",
+                "eu-west-1": "ami-04a737d35e536d789",
+                "eu-west-2": "ami-049de82920fb1a9ea",
+                "us-east-1": "ami-0dacc76221e1b7fb4",
+                "us-west-1": "ami-0243a93b46f94f86a"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-knowledge-graph-corporate-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-knowledge-graph-corporate-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/enterprise-solution-2.4.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/enterprise-data-small.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Customer 360 - Attribution and Engagement Graph",
+            "Version": "2.6.4",
+            "Description": "Create a real-time 360-degree view of the customer journey for attribution and engagement insights",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_customer-profile_2790538.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "customer-360-attribution",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-037f640648df2eff7",
+                "eu-central-1": "ami-0e7594d5de0246ef9",
+                "eu-west-1": "ami-0ec4d57e9e95eea53",
+                "eu-west-2": "ami-0017e89c169ecc167",
+                "us-east-1": "ami-0f00227bf13018b4d",
+                "us-west-1": "ami-0525dea106425db88"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-customer-360-attribution-single-node-westeurope-1607974830",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-customer-360-attribution-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/custattribution_sfdc/2.5/custattribution_sfdc-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/custattribution_sfdc/2.5/custattribution_sfdc-data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Healthcare - Referral networks, Hub(PageRank) \u0026 Community Detection",
+            "Version": "2.6.4",
+            "Description": "Analyze member(patient) claims to establish referral networks, identify most influential prescribers(doctors) and discover the connected prescriber communities",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Healthcare_1551508.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "healthcare-analytics",
+            "Categories": "Healthcare",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-08f23a06387d1bdac",
+                "eu-central-1": "ami-02522e43643a85cd8",
+                "eu-west-1": "ami-0747882947b03cdb3",
+                "eu-west-2": "ami-0e16193bd0dbd0022",
+                "us-east-1": "ami-019308b7431abfa43",
+                "us-west-1": "ami-0ab6b9f092816e509"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-healthcare-analytics-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-healthcare-analytics-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/healthcare-analytics-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/healthcare-analytics-data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Entity Resolution (MDM)",
+            "Version": "2.6.4",
+            "Description": "Identify, link and merge entities such as customers with analysis of attributes and relationships",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_people_2849635.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "entity-resolution-mdm",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-02adf37a7a63013fb",
+                "eu-central-1": "ami-000c29f56e27edda3",
+                "eu-west-1": "ami-0933ee58cfd64e159",
+                "eu-west-2": "ami-018fbb64c772c447a",
+                "us-east-1": "ami-0944100fd259f292b",
+                "us-west-1": "ami-06608bfae347b8c8f"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-entity-resolution-mdm-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-entity-resolution-mdm-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/entity-resolution-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/entity-resolution-data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "In-Database Machine Learning for Big Data Entity Resolution",
+            "Version": "2.6.4",
+            "Description": "Match, link and group entities for creating a single identity across large datasets with in-database machine learning",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_people_2849635.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "er-ml",
+            "Categories": "Machine Learning",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-03aa1326721d61d3a",
+                "eu-central-1": "ami-0c5a6f5d36435dfe5",
+                "eu-west-1": "ami-093e626de355ed597",
+                "eu-west-2": "ami-06b3ca580fc2b7677",
+                "us-east-1": "ami-00811c1ac0902c6f8",
+                "us-west-1": "ami-03a558c6bdd6ba177"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-er-ml-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-er-ml-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/er-ml-schema.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/er-ml-data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Data Lineage",
+            "Version": "2.6.4",
+            "Description": "Improve data governance with the ability to trace information back to its source",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Pedigree+Chart_151012.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "data-lineage",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0731e4149e5e7da61",
+                "eu-central-1": "ami-0a8eb8b5b29edeb54",
+                "eu-west-1": "ami-0541433c130f833e5",
+                "eu-west-2": "ami-03d8472dc01fc2ad5",
+                "us-east-1": "ami-07a724038c5b10317",
+                "us-west-1": "ami-02786b43c3fcd3055"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-data-lineage-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-data-lineage-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/dataLineage-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/dataLineage_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Financial Services (Payments) - Fraud Detection",
+            "Version": "2.6.4",
+            "Description": "Detect and stop fraudulent payments in real-time",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_fraud+protection_2102650.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "payment-fraud-detection",
+            "Categories": "Anti-Fraud",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-089da07e99f1a7226",
+                "eu-central-1": "ami-08f973bad9400a818",
+                "eu-west-1": "ami-0ca6f760495700d0e",
+                "eu-west-2": "ami-0e64f22a9cd74cf14",
+                "us-east-1": "ami-09c04795101a075b1",
+                "us-west-1": "ami-0add8500604a446ac"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-payment-fraud-detection-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-payment-fraud-detection-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/financial-services_solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/financial-services_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Cybersecurity Threat Detection - IT",
+            "Version": "2.6.4",
+            "Description": "Block cybersecurity threats by detecting interconnected events, devices and people",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_cyber_security_2417903.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "cyber-security",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-03aa470417cff3046",
+                "eu-central-1": "ami-0362b72ad57690b97",
+                "eu-west-1": "ami-09df148487c3f9945",
+                "eu-west-2": "ami-0944a7c16a94afe15",
+                "us-east-1": "ami-046a90ae51df0a439",
+                "us-west-1": "ami-027db9692e60022bd"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-cyber-security-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-cyber-security-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/cybersecurity_solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/cybersecurity_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Graph Analytics - Shortest Path Algorithms",
+            "Version": "2.6.4",
+            "Description": "Use shortest path algorithms to find the shortest and cheapest routes",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_shortcut_3194540.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "shortest-path",
+            "Categories": "Graph Algorithms",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0bcb3b5bceee41849",
+                "eu-central-1": "ami-0e4dff4fce46fd386",
+                "eu-west-1": "ami-01f8bb50ddc756f59",
+                "eu-west-2": "ami-0553d0ca0a8c4c09f",
+                "us-east-1": "ami-0a66f22dfb9149a55",
+                "us-west-1": "ami-0bd6dd47750a12893"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-shortest-path-single-node-westeurope-1607974830",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-shortest-path-single-node-westus-1607974830"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/shortestpath_solution.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/shortestpath_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Graph Analytics - Centrality Algorithms",
+            "Version": "2.6.4",
+            "Description": "Discover ways, including PageRank, to measure the most centrally located entities",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_central_3127370.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "centrality",
+            "Categories": "Graph Algorithms",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0484b74ea2cffaa6f",
+                "eu-central-1": "ami-0e997ad2c16e97310",
+                "eu-west-1": "ami-03465b757d2354c78",
+                "eu-west-2": "ami-004d08910db37d3a7",
+                "us-east-1": "ami-03a915e5919fe14f5",
+                "us-west-1": "ami-0ec30d7a3448d0b33"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-centrality-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-centrality-single-node-westus-1607974830"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/Centrality_Solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/centrality_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Graph Analytics - Community Detection Algorithms",
+            "Version": "2.6.4",
+            "Description": "Find the natural groupings of connected individuals in a network",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Community_168639.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "community-detection",
+            "Categories": "Graph Algorithms",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0c0896ff451171d34",
+                "eu-central-1": "ami-0bda627727c8cc777",
+                "eu-west-1": "ami-0b86c5119a65d7fba",
+                "eu-west-2": "ami-0ec2814b4e09617dd",
+                "us-east-1": "ami-06f56d3bb678b51ba",
+                "us-west-1": "ami-0f93c24bff8933f72"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-community-detection-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-community-detection-single-node-westus-1607974830"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/Community_Detection_solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/community_detection_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "In-Database Machine Learning Recommendation",
+            "Version": "2.6.4",
+            "Description": "Provide content and products suggestions using an in-database machine learning recommendation system",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_shopping+recommendation_2475111.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "ml-recommend",
+            "Categories": "Machine Learning,Recommendations",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-007bf438cf96f4a8d",
+                "eu-central-1": "ami-0cd19df1eb802fa61",
+                "eu-west-1": "ami-0d0325215a46209bc",
+                "eu-west-2": "ami-0b7dbe875c7cfb2c3",
+                "us-east-1": "ami-08420e553e5500266",
+                "us-west-1": "ami-065c050c7abde2701"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-recommend-single-node-westeurope-1607974830",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-recommend-single-node-westus-1607974830"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/recommendation-latent-factor-model.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/recommendation-latent-factor-model_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Low-Rank Approximation Machine Learning",
+            "Version": "2.6.4",
+            "Description": "Implement the low-rank approximation algorithm natively in-database to deliver personalized recommendations",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Data+Dashboard_986799.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "low-rank-approx",
+            "Categories": "Machine Learning,Recommendations",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0d0f6e1bc9203d535",
+                "eu-central-1": "ami-0ec93d6e3924b1138",
+                "eu-west-1": "ami-095dd58ffec338b50",
+                "eu-west-2": "ami-08b8a5430df457d2e",
+                "us-east-1": "ami-0654ac58078fe9daa",
+                "us-west-1": "ami-011efab6582e69577"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-low-rank-approx-single-node-westeurope-1607974830",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-low-rank-approx-single-node-westus-1607974830"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/LowRankApproximation.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/LowRankApproximation_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "COVID-19 Analysis",
+            "Version": "2.6.4",
+            "Description": "Detect hubs of infection and track the movements of potential spreaders",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_virus_3166303.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "covid-19",
+            "Categories": "Geospatial Analysis,Temporal Analysis",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0eaa3ab7fb894548a",
+                "eu-central-1": "ami-0788ee82062719831",
+                "eu-west-1": "ami-0ddd597a28753ac36",
+                "eu-west-2": "ami-0d99a8f6a8a9062cf",
+                "us-east-1": "ami-0ee30e1a6251c5b90",
+                "us-west-1": "ami-0d8823d39a04919df"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0df578b94975af899",
+                "eu-central-1": "ami-01ae47b1540b085ef",
+                "eu-west-1": "ami-098e9e8d9533d9cb3",
+                "eu-west-2": "ami-0fb5e81a1071c779a",
+                "us-east-1": "ami-02e7de0bbd5dfaac0",
+                "us-west-1": "ami-0587c6facc04c6e56"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-covid-19-single-node-westeurope-1607974831",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-covid-19-single-node-westus-1607974831"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1607971788",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1607971788"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/covid19_solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/covid19_data.tar.gz",
+            "PackageURL": "https://tigergraph-release-download.s3.amazonaws.com/cloud-edition/cluster-installer.tar.gz",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 14240,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Blank v3",
+            "Version": "3.0.6",
+            "Description": "No pre-populated schema, dataset or queries",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_blank+presentation+board_1497803.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "blank",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-013fb1405eb05feee",
+                "eu-central-1": "ami-01dcde226e548ebfe",
+                "eu-west-1": "ami-0a86112e080a6020f",
+                "eu-west-2": "ami-05a4170ac7b9f8c06",
+                "us-east-1": "ami-09e51780da1da8b7b",
+                "us-west-1": "ami-010ad48a8689205e3"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-single-node-westus-1608071226"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "",
+            "DataURL": "",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "GSQL 101 v3",
+            "Version": "3.0.6",
+            "Description": "TigerGraph Introductory Solution",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_tutorial_2366933.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "gsql101",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0a66fb0b6ef6e1f62",
+                "eu-central-1": "ami-02396a499050a6359",
+                "eu-west-1": "ami-07b693a43504313c1",
+                "eu-west-2": "ami-0bfce5ef7e6863d67",
+                "us-east-1": "ami-0c1cb9226c9300bcf",
+                "us-west-1": "ami-08b1eab751ffa7b89"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-gsql101-single-node-westeurope-1608072502",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-gsql101-single-node-westus-1608074514"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/gsql101.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/gsql101-data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Network and IT Resource Optimization v3",
+            "Version": "3.0.6",
+            "Description": "Network and IT resource graph for modeling and analyzing the impact of the hardware outage on workloads",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_infrastructure_117239.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "hardware-impact-analysis",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-03c3f15f4241934cd",
+                "eu-central-1": "ami-01c872df70e8782f5",
+                "eu-west-1": "ami-0e487d81576c2f632",
+                "eu-west-2": "ami-0fc1bb9bc2c4b434b",
+                "us-east-1": "ami-0c2637ea3ecf9d228",
+                "us-west-1": "ami-0e484e397260e2ba6"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-hardware-impact-analysis-single-node-westus-1608071225"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/visa-network-impact.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/visa-network-impact-cloud_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Recommendation Engine (Movie Recommendation) v3",
+            "Version": "3.0.6",
+            "Description": "Graph-based movie recommendation engine built with public data",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_recommendation_305580.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "movie-recommend",
+            "Categories": "Recommendations",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-02e2bf451eee32819",
+                "eu-central-1": "ami-04a63dcc1bcf3360b",
+                "eu-west-1": "ami-02b2b0fde2dd43101",
+                "eu-west-2": "ami-050a8f5f4afdbeed0",
+                "us-east-1": "ami-0a83fa00be8c87e35",
+                "us-west-1": "ami-038949552060657b1"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-movie-recommend-single-node-westeurope-1608072501",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-movie-recommend-single-node-westus-1608071224"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/movie-rec.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/movie-rec_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Recommendation Engine 2.0 (Hyper-Personalized Marketing)  v3",
+            "Version": "3.0.6",
+            "Description": "Hyper-personalized recommendation engine to create dynamic offers in real-time for higher click-through and revenue",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_recommendation_305580.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "recommend-engine",
+            "Categories": "Recommendations",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0f0f0e7822fe42fd1",
+                "eu-central-1": "ami-02a332b8b3a6c1cca",
+                "eu-west-1": "ami-00514975e8f6f01e6",
+                "eu-west-2": "ami-0b23802986c44e24c",
+                "us-east-1": "ami-01d78f09ae8059370",
+                "us-west-1": "ami-074bf166b491191c6"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-recommend-engine-single-node-westeurope-1608072470",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-recommend-engine-single-node-westus-1608071224"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/recommendation.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/recommendation2.0_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Machine Learning and Real-time Fraud Detection v3",
+            "Version": "3.0.6",
+            "Description": "Mobile industry example for detecting fraud in real-time and generating graph-based features for training the machine learning solution ",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Machine+Learning_2010152.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "ml-antifraud",
+            "Categories": "Machine Learning,Anti-Fraud",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-08315544d8c8e3cc0",
+                "eu-central-1": "ami-0d9da40f5a07c519e",
+                "eu-west-1": "ami-0a19d191a3b77f833",
+                "eu-west-2": "ami-03fd920de42303034",
+                "us-east-1": "ami-027a74b9c7f9512d8",
+                "us-west-1": "ami-04eccb87e0665090a"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-antifraud-single-node-westus-1608071224"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/china-mobile.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/china-mobile_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Supply Chain Analysis v3",
+            "Version": "3.0.6",
+            "Description": "Example covering inventory planning and impact analysis",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Supply+Chain_1271146.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "supplychain",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0bb5b1bf37a820e2d",
+                "eu-central-1": "ami-0b4221df448377070",
+                "eu-west-1": "ami-0173da01486cf1039",
+                "eu-west-2": "ami-0485d5fcf10733b79",
+                "us-east-1": "ami-09116bb0d29d28dfe",
+                "us-west-1": "ami-01ed7f616a5336740"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-supplychain-single-node-westus-1608071223"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/supply-chain.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/supplychain-data.tgz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Fraud and Money Laundering Detection (Fin. Services) v3",
+            "Version": "3.0.6",
+            "Description": "Payments graph for detecting multiple types of fraud and money laundering patterns",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_fraud+prevention_2486998.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "anti-money-laundring",
+            "Categories": "Anti-Fraud",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-024472b4015cb63ff",
+                "eu-central-1": "ami-0f1330fce69a4adf3",
+                "eu-west-1": "ami-0d97bba76a4647f73",
+                "eu-west-2": "ami-05fec7fbd464a6ac3",
+                "us-east-1": "ami-064759d7a73975ed8",
+                "us-west-1": "ami-005047b77444dd173"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-anti-money-laundring-single-node-westeurope-1608072460",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-anti-money-laundring-single-node-westus-1608071223"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/antifraud.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/antifraud-cloud_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Social Network Analysis v3",
+            "Version": "3.0.6",
+            "Description": "Social network example for understanding and analyzing relationships",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_networking_2146368.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "socialgraph",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0dd997620e62b3553",
+                "eu-central-1": "ami-095f3875469862fc5",
+                "eu-west-1": "ami-048eb93cd44e1e2e5",
+                "eu-west-2": "ami-08dc95745e72a1829",
+                "us-east-1": "ami-0483ff0e47bb3954a",
+                "us-west-1": "ami-02bfef0a346053a74"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-socialgraph-single-node-westeurope-1608145576",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-socialgraph-single-node-westus-1608071222"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/socialgraph-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/socialgraph-data-small.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Healthcare Graph (Drug Interaction/FAERS) v3",
+            "Version": "3.0.6",
+            "Description": "Healthcare example focused on public (FAERS) and private data for pharmaceutical drugs",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Healthcare_2334447.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "healthcare",
+            "Categories": "Healthcare",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0d31e5672546cc540",
+                "eu-central-1": "ami-031056733ca8d2288",
+                "eu-west-1": "ami-02a4a2367b64f9be4",
+                "eu-west-2": "ami-0fbb70a2d620804a2",
+                "us-east-1": "ami-0c43cacee925eb835",
+                "us-west-1": "ami-097f9eb9fb5cc8b5d"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-healthcare-single-node-westeurope-1608072439",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-healthcare-single-node-westus-1608071222"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/healthcare-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/healthcare-data-small.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Enterprise Knowledge Graph (Crunchbase) v3",
+            "Version": "3.0.6",
+            "Description": "Knowledge Graph example featuring Crunchbase data with startups, founders and companies",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_connection_1560042.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "knowledge-graph-crunchbase",
+            "Categories": "Knowledge Graph",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0671372e5bfbc7e0a",
+                "eu-central-1": "ami-02e13ca4a36e9f271",
+                "eu-west-1": "ami-057bde186c5787009",
+                "eu-west-2": "ami-033a71c59064dcc4f",
+                "us-east-1": "ami-093932abc35b01ebb",
+                "us-west-1": "ami-0e962a4c0bd2b6aa5"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-knowledge-graph-crunchbase-single-node-westeurope-1608072429",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-knowledge-graph-crunchbase-single-node-westus-1608071221"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/crunchbase-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/crunchbase-data-small.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Enterprise Knowledge Graph (Corporate) v3",
+            "Version": "3.0.6",
+            "Description": "Knowledge Graph example featuring corporates",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_corporate_2279873.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "knowledge-graph-corporate",
+            "Categories": "Knowledge Graph",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0ec32d3573ac2bc33",
+                "eu-central-1": "ami-067ec899acf4e6f43",
+                "eu-west-1": "ami-068092ab4fd7618e4",
+                "eu-west-2": "ami-01cb5628821430870",
+                "us-east-1": "ami-0890ed6a07f1f0f27",
+                "us-west-1": "ami-0ec28a08c45b3e813"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-knowledge-graph-corporate-single-node-westus-1608071221"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/enterprise-solution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/enterprise-data-small.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Customer 360 - Attribution and Engagement Graph v3",
+            "Version": "3.0.6",
+            "Description": "Create a real-time 360-degree view of the customer journey for attribution and engagement insights",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_customer-profile_2790538.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "customer-360-attribution",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-033e031fca87bbbb6",
+                "eu-central-1": "ami-030e813a6d986e40d",
+                "eu-west-1": "ami-040ceedb2ffdc1700",
+                "eu-west-2": "ami-02969edb943a7f1c2",
+                "us-east-1": "ami-0a9082392b114a069",
+                "us-west-1": "ami-097f7dead3e1abccc"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-customer-360-attribution-single-node-westus-1608071221"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/cust-attribution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/custattribution_sfdc/2.5/custattribution_sfdc-data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Healthcare - Referral networks, Hub(PageRank) \u0026 Community Detection v3",
+            "Version": "3.0.6",
+            "Description": "Analyze member(patient) claims to establish referral networks, identify most influential prescribers(doctors) and discover the connected prescriber communities",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Healthcare_1551508.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "healthcare-analytics",
+            "Categories": "Healthcare",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0c51b9e9c4b4d61c1",
+                "eu-central-1": "ami-0cba594b154863643",
+                "eu-west-1": "ami-0605127e7b7cfe33b",
+                "eu-west-2": "ami-08319e36a41ae6758",
+                "us-east-1": "ami-007f6183b190466ea",
+                "us-west-1": "ami-0da1e259841461a6c"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-healthcare-analytics-single-node-westeurope-1608072378",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-healthcare-analytics-single-node-westus-1608071220"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/healthcare-analytics.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/healthcare-analytics-data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Entity Resolution (MDM) v3",
+            "Version": "3.0.6",
+            "Description": "Identify, link and merge entities such as customers with analysis of attributes and relationships",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_people_2849635.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "entity-resolution-mdm",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0996c6e1623074dd8",
+                "eu-central-1": "ami-0aa579d1a356b698d",
+                "eu-west-1": "ami-03b7abb884ea47f2c",
+                "eu-west-2": "ami-0086f4bf1739f26f3",
+                "us-east-1": "ami-00b68f761397d3354",
+                "us-west-1": "ami-0b1f97c30c3487876"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-entity-resolution-mdm-single-node-westeurope-1608072357",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-entity-resolution-mdm-single-node-westus-1608071220"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/entity-resolution.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/entity-resolution-data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "In-Database Machine Learning for Big Data Entity Resolution v3",
+            "Version": "3.0.6",
+            "Description": "Match, link and group entities for creating a single identity across large datasets with in-database machine learning",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_people_2849635.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "er-ml",
+            "Categories": "Machine Learning",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0db3f2370546403e4",
+                "eu-central-1": "ami-0c0e15712011aee6b",
+                "eu-west-1": "ami-0b0dce522a2bc016e",
+                "eu-west-2": "ami-037afb4ae078e8bee",
+                "us-east-1": "ami-08b819a4f3a45ce33",
+                "us-west-1": "ami-0345dc3e66c563a59"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-er-ml-single-node-westeurope-1608072297",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-er-ml-single-node-westus-1608071219"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/er-ml.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/er-ml-data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Cybersecurity Threat Detection - IT v3",
+            "Version": "3.0.6",
+            "Description": "Block cybersecurity threats by detecting interconnected events, devices and people",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_cyber_security_2417903.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "cyber-security",
+            "Categories": "",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0fa69b391883d0900",
+                "eu-central-1": "ami-068d89d198c072ca2",
+                "eu-west-1": "ami-05a782f52bcce8fcb",
+                "eu-west-2": "ami-0bf0670e39b5b02d7",
+                "us-east-1": "ami-08a6d44f69efd3665",
+                "us-west-1": "ami-01d68499762494dc9"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-cyber-security-single-node-westeurope-1608072226",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-cyber-security-single-node-westus-1608071218"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/cyber-security.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/cybersecurity_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Graph Analytics - Shortest Path Algorithms v3",
+            "Version": "3.0.6",
+            "Description": "Use shortest path algorithms to find the shortest and cheapest routes",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_shortcut_3194540.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "shortest-path",
+            "Categories": "Graph Algorithms",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-029fe4da4694b81fd",
+                "eu-central-1": "ami-0a66c628afbb0427b",
+                "eu-west-1": "ami-0eb35787e1a5d5c93",
+                "eu-west-2": "ami-03f7fbffac7c92085",
+                "us-east-1": "ami-0af756b191997e873",
+                "us-west-1": "ami-09b3fca1fde03ca02"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-shortest-path-single-node-westeurope-1608072206",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-shortest-path-single-node-westus-1608071218"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/shortest-path.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/shortestpath_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Graph Analytics - Centrality Algorithms v3",
+            "Version": "3.0.6",
+            "Description": "Discover ways, including PageRank, to measure the most centrally located entities",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_central_3127370.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "centrality",
+            "Categories": "Graph Algorithms",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-066cd5060fba78525",
+                "eu-central-1": "ami-07ab71bdafb9ad53e",
+                "eu-west-1": "ami-0dce1d54551ebaf9a",
+                "eu-west-2": "ami-0c8535ee1e33031c8",
+                "us-east-1": "ami-0318a70df3f094a2f",
+                "us-west-1": "ami-06e51ccf0ad4e8230"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-centrality-single-node-westus-1608071217"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/centrality.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/centrality_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Graph Analytics - Community Detection Algorithms v3",
+            "Version": "3.0.6",
+            "Description": "Find the natural groupings of connected individuals in a network",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Community_168639.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "community-detection",
+            "Categories": "Graph Algorithms",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0174de749f6501b92",
+                "eu-central-1": "ami-01bec67258df07ccd",
+                "eu-west-1": "ami-0f5776bb7884982ef",
+                "eu-west-2": "ami-065dcf118589cb252",
+                "us-east-1": "ami-0e0a7e67c8c011ca0",
+                "us-west-1": "ami-0a12abb5f5fd67cc8"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-community-detection-single-node-westeurope-1608071795",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-community-detection-single-node-westus-1608071217"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/community-detection.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/community_detection_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "In-Database Machine Learning Recommendation v3",
+            "Version": "3.0.6",
+            "Description": "Provide content and products suggestions using an in-database machine learning recommendation system",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_shopping+recommendation_2475111.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "ml-recommend",
+            "Categories": "Machine Learning,Recommendations",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-0d56ae2056727958e",
+                "eu-central-1": "ami-0fa923ca104d6f850",
+                "eu-west-1": "ami-09e6676319030819d",
+                "eu-west-2": "ami-09a98b336d86cc351",
+                "us-east-1": "ami-03642461e4c05be5a",
+                "us-west-1": "ami-0dbe73222cf0d5ff8"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-recommend-single-node-westeurope-1608071227",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-recommend-single-node-westus-1608071216"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/recommendation-latent-factor-model.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/recommendation-latent-factor-model_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Low-Rank Approximation Machine Learning v3",
+            "Version": "3.0.6",
+            "Description": "Implement the low-rank approximation algorithm natively in-database to deliver personalized recommendations",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_Data+Dashboard_986799.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "low-rank-approx",
+            "Categories": "Machine Learning,Recommendations",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-034e2e7b60c94f0d4",
+                "eu-central-1": "ami-0c87af9f8467a9849",
+                "eu-west-1": "ami-067a54e3633e41252",
+                "eu-west-2": "ami-0c33df6bbe01c4ad1",
+                "us-east-1": "ami-01fd40c81780b9b85",
+                "us-west-1": "ami-0d1cfb7ac6662638c"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-low-rank-approx-single-node-westeurope-1608071227",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-low-rank-approx-single-node-westus-1608071216"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/low-rank-approximation.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/LowRankApproximation_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "COVID-19 Analysis v3",
+            "Version": "3.0.6",
+            "Description": "Detect hubs of infection and track the movements of potential spreaders",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_virus_3166303.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "covid-19",
+            "Categories": "Geospatial Analysis,Temporal Analysis",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-08e1712ea6a423c8d",
+                "eu-central-1": "ami-0ed5a53a1a019a506",
+                "eu-west-1": "ami-0d5ad49504a30974a",
+                "eu-west-2": "ami-08c07626308909154",
+                "us-east-1": "ami-083d43ee03765615c",
+                "us-west-1": "ami-001adf21cc451cdfc"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-covid-19-single-node-westeurope-1608071227",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-covid-19-single-node-westus-1608071216"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/covid19.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/covid19_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }, {
+            "Name": "Graph Convolutional Networks v3",
+            "Version": "3.0.6",
+            "Description": "Graph convolutional networks for paper classification on a citation graph",
+            "Logo": "https://tigergraph-cloud-portal-static.s3-us-west-1.amazonaws.com/noun_neural_network_1119898.svg",
+            "MinDiskGB": 50,
+            "DefaultTag": "ml",
+            "Categories": "Machine Learning",
+            "RegionToPrebuiltAMI": {
+                "ap-northeast-1": "ami-08f9251cb6f348a79",
+                "eu-central-1": "ami-06b72b747741eb231",
+                "eu-west-1": "ami-0e3ab3b15d8a0465a",
+                "eu-west-2": "ami-08918bb40a5dae792",
+                "us-east-1": "ami-0a55199dab9f5d20c",
+                "us-west-1": "ami-04cd45eddfd4af447"
+            },
+            "RegionToClusterAMI": {
+                "ap-northeast-1": "ami-0639c8cbcc6e2ee9e",
+                "eu-central-1": "ami-0f7b9ed125df97153",
+                "eu-west-1": "ami-0331dbe71db7c2728",
+                "eu-west-2": "ami-0c1c963f31f064fff",
+                "us-east-1": "ami-0cc3dec64a565e87e",
+                "us-west-1": "ami-01423ee274acdbb98"
+            },
+            "RegionToPrebuiltVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-single-node-westeurope-1608071226",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-ml-single-node-westus-1608071215"
+            },
+            "RegionToClusterVMImageID": {
+                "westeurope": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westeurope-1608071189",
+                "westus": "/subscriptions/8138e517-622d-4ec5-b8e2-4f4707348092/resourceGroups/images/providers/Microsoft.Compute/images/prod-blank-cluster-westus-1608071189"
+            },
+            "SolutionURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/3.0/GCNonCitationGraph.tar.gz",
+            "DataURL": "https://tigergraph-testdrive-testdata.s3.amazonaws.com/GCNonCitationGraph_data.tar.gz",
+            "PackageURL": "",
+            "Applications": [{
+                "Name": "GraphStudio",
+                "Logo": "open_in_browser",
+                "Description": "GraphStudio",
+                "Port": 443,
+                "URLPrefix": "/"
+            }, {
+                "Name": "Netdata",
+                "Logo": "insert_chart",
+                "Description": "Netdata",
+                "Port": 2019,
+                "URLPrefix": "/"
+            }],
+            "ApplicationsJSON": null
+        }]
+    }
+}
