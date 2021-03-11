@@ -11,11 +11,8 @@ from selenium.webdriver import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.utils import ChromeType
 
-
 # Proxy Selenium : Intercept callbacks and requests
 from seleniumwire import webdriver 
-
-
 
 # System Calls 
 import sys
@@ -27,37 +24,28 @@ import requests
 import importlib
 
 # Arg Parser
-
 import argparse 
 
-
+# Crypting the creds.bank
+from base64 import b64encode, b64decode
+from simplecrypt import encrypt, decrypt
 
 # Styling
 from rich import print
 from time import sleep
 from rich.console import Console
 from rich.table import Table
-
-
-# Crypting the creds.bank
-from base64 import b64encode, b64decode
-from simplecrypt import encrypt, decrypt
-
+console = Console(log_path=False)
 
 # ToDo : 
 # 0. Move to native requests => Faster !!!
 # 1. Check login failures 
-# 2. Add SSO and Linkedin ? 
+# 2. Add SSO and Linkedin ? + $ paid 
 # 3. add password expired 
 # 4. handle all exceptions
 
-# parser = argparse.ArgumentParser()
-# parser.add_argument("echo", help="echo the string you use here")
-# args = parser.parse_args()
-# print(args.echo)
-
-
-
+mail = ""
+password = ""
 hasher = 'tgcloudcli@2021'
 
 class suppress_stdout_stderr(object):
@@ -89,16 +77,10 @@ class suppress_stdout_stderr(object):
         for fd in self.null_fds + self.save_fds:
             os.close(fd)
 
-
-
-console = Console(log_path=False)
-console.print()
-mail = ""
-password = ""
-
-
-
 def cliargs():
+    """
+    Function that handles the args
+    """
     parser = argparse.ArgumentParser()
     subparser = parser.add_subparsers() 
 
@@ -124,22 +106,41 @@ def cliargs():
     # algoparser.add_argument('-activeonly',default="y",choices=["y","n"],help='hide terminated Boxes', nargs='?')
     # algoparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigertool', nargs='?')
    
+    # Demo Parser 
+    demoparser = subparser.add_parser('demos')
+    demoparser.set_defaults(func=list_demos)
+    # demoparser.add_argument('-activeonly',default="y",choices=["y","n"],help='hide terminated Boxes', nargs='?')
+    # demoparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigertool', nargs='?')
    
+
     # End Of parsers
     args = parser.parse_args()
     args.func(args)
 
-
 def get_bearer():
+    """
+    get bearer stored
+
+    Returns:
+        [type]: [description]
+    """
     # try catch ? bearer not found or file not 
     f = open('creds.bank',"rb")
     res = decrypt(hasher, b64decode(f.read()))
     return res
 
+def ops_machine(args):
+    """
+    Start Stop Terminate and Archive
 
-def ops_machine(action,id_machine,bearer):
-    
-
+    Args:
+        action ([type]): [description]
+        id_machine ([type]): [description]
+        bearer ([type]): [description]
+    """
+    action = args.action
+    id_machine = args.id
+    bearer = get_bearer()
     headers = {
         'authority': 'tgcloud.io',
         'accept': 'application/json, text/plain, */*',
@@ -164,8 +165,24 @@ def ops_machine(action,id_machine,bearer):
         except Exception as e :
             print("[bold red]tgcloud response[/]  {}".format(e))
 
-def create_machine(bearer,data):
+def create_machine(args):
+    """
+    Create a tgcloud machine
 
+    Args:
+        args ([type]): [description]
+    """
+    data = {"Name":"default","Tag":"blank","InitialPassword":"default","DomainPrefix":"domain","Description":"","Platform":"aws","InstanceType":"TG.Free","Region":"us-west-1","FirewallRules":[{"AllowedCIDR":["0.0.0.0/0"],"FromPort":1,"ToPort":65535,"Protocol":"tcp"}],"DiskGBPerNode":50,"PartitionFactor":1,"ReplicationFactor":1,"Version":"3.0.6","StarterKit":"Blank v3"}
+    
+    data["Name"] = console.input("[bold red]Solution Name[/]? ")
+    data["Tag"] = console.input("[bold red]Solution Tag[/]? ( optional ) ")
+    data["DomainPrefix"] = console.input("[bold red]Solution url[/]? ( <your_value>.i.tgcloud.io ) ")
+    data["InitialPassword"] = console.input("[bold red]Solution Password[/]? ",password=True)
+    data["Description"] = console.input("[bold red]Solution Description[/]? ( optional ) ")
+    with open('conf.json', 'w') as outfile:
+        json.dump(conf, outfile)    
+
+    bearer = get_bearer()
     headers =  {
         'authority': 'tgcloud.io',
         'accept': 'application/json, text/plain, */*',
@@ -180,7 +197,6 @@ def create_machine(bearer,data):
         'accept-language': 'en-US,en;q=0.9,ar;q=0.8',
         
     }
-
     
     response = requests.post('https://tgcloud.io/api/solution/create', headers=headers,json=data)
     if response.status_code == 200:
@@ -190,9 +206,14 @@ def create_machine(bearer,data):
     else:
         print(response.text)
 
-
-
 def table_printer(title,rows):
+    """
+    Table printer to show tgcloud boxes
+
+    Args:
+        title ([type]): [description]
+        rows ([type]): [description]
+    """
     table = Table(title=title)
     table.add_column("ID", justify="right", style="cyan", no_wrap=True)
     table.add_column("Machine", style="magenta")
@@ -205,6 +226,15 @@ def table_printer(title,rows):
     console.print(table)
 
 def list_machine(args):
+    """
+    List machines in tgcloud
+
+    Args:
+        args ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     output = args.o
     activeonly = args.activeonly
     bearer = get_bearer()
@@ -249,9 +279,13 @@ def list_machine(args):
         else:
             print("You should relogin use ./tigertool login") 
 
-
-
 def login_wizard():
+    """
+    Login wizard inputs
+
+    Returns:
+        [type]: [description]
+    """
     from rich.console import Console
     console = Console()
     mail = console.input("What is [i]your[/i] [bold red]tgcloud user[/]? ")
@@ -263,6 +297,15 @@ def help():
     print("Help")
 
 def login(args):
+    """
+    Login function
+
+    Args:
+        args ([type]): [description]
+
+    Returns:
+        [type]: [description]
+    """
     if args:
         mail = args.email
         password = args.password 
@@ -389,106 +432,109 @@ def login(args):
                 driver.quit()
                 return -1
 
+def archive(args):
+    """
+    archive machine 
+    action /archive
 
-
-# /archive
-# DELETE -> destroy
-
-
+    Args:
+        args ([type]): [description]
+    """
+    pass
 
 def list_algos(args):
+    """
+    lists algos
 
-        
-        modules_by_id = {}
-        
-        for view_folder in sorted([view.split('/')[-1] for (view, _, _) in os.walk('algos') if view != 'algos']):
-            try:
-                mod = importlib.import_module(f'algos.{view_folder}')
+    Args:
+        args ([type]): [description]
+    """   
+    modules_by_id = {}
+
+    for view_folder in sorted([view.split('/')[-1] for (view, _, _) in os.walk('algos') if view != 'algos']):
+        try:
+            mod = importlib.import_module(f'algos.{view_folder}')
+            
+            if hasattr(mod, 'start'):
+                nfo = mod.info() if hasattr(mod, 'info') else {'name': view_folder}
+                mod_id = nfo['id'] if 'id' in nfo else nfo['name']
+                nfo_resolved = {
+                    'name': view_folder,
+                    'tags': [],
+                    **nfo,
+                    'id': mod_id,
+                    'module': mod,
+                }
                 
-                if hasattr(mod, 'start'):
-                    nfo = mod.info() if hasattr(mod, 'info') else {'name': view_folder}
-                    mod_id = nfo['id'] if 'id' in nfo else nfo['name']
-                    nfo_resolved = {
-                        'name': view_folder,
-                        'tags': [],
-                        **nfo,
-                        'id': mod_id,
-                        'module': mod,
-                    }
-                    
-                    modules_by_id[mod_id] = nfo_resolved
-            except Exception as e :  # noqa: E722
-                pass
-        sorted_mods = sorted(modules_by_id.values(), key=lambda nfo: nfo['id'])
-        for i in range(len(sorted_mods)):
-            sorted_mods[i]['index'] = i
-        for e in modules_by_id:
-            print("ID  : [bold green] "+e+" [/] Algo Name : [bold green] " + modules_by_id[e]["name"]+"[/]")
-        res = modules_by_id
-        demo = ""
-        while (demo not in res):
-            demo = console.input("What is [i] the [/i] [bold red]algo to load [/]? ")
-        with open('conf.json') as json_file:
-            conf = json.load(json_file)
-        
-        server = console.input("[bold red]server url [/]? ({}) ".format("https://{}.i.tgcloud.io".format(conf["DomainPrefix"]))) or "https://{}.i.tgcloud.io".format(conf["DomainPrefix"])
-        graphname = console.input("[bold red]graph name [/]? (MyGraph)") or "MyGraph"
-        user = console.input("[bold red]user [/]? (tigergraph)") or 'tigergraph'
-        password = console.input("[bold red]password [/]?  (*******)",password=True) or 'R4phuss456'
-        version = console.input("[bold red]version [/]?  (3.0.6)") or '3.1.0'
-        # print(graphname,server,user,password,version)
-        res[demo]["module"].start(graphname,server,user,password,version)
+                modules_by_id[mod_id] = nfo_resolved
+        except Exception as e :  # noqa: E722
+            pass
+    sorted_mods = sorted(modules_by_id.values(), key=lambda nfo: nfo['id'])
+    for i in range(len(sorted_mods)):
+        sorted_mods[i]['index'] = i
+    for e in modules_by_id:
+        print("ID  : [bold green] "+e+" [/] Algo Name : [bold green] " + modules_by_id[e]["name"]+"[/]")
+    res = modules_by_id
+    demo = ""
+    while (demo not in res):
+        demo = console.input("What is [i] the [/i] [bold red]algo to load [/]? ")
+    with open('conf.json') as json_file:
+        conf = json.load(json_file)
 
+    server = console.input("[bold red]server url [/]? ({}) ".format("https://{}.i.tgcloud.io".format(conf["DomainPrefix"]))) or "https://{}.i.tgcloud.io".format(conf["DomainPrefix"])
+    graphname = console.input("[bold red]graph name [/]? (MyGraph)") or "MyGraph"
+    user = console.input("[bold red]user [/]? (tigergraph)") or 'tigergraph'
+    password = console.input("[bold red]password [/]?  (*******)",password=True) or 'R4phuss456'
+    version = console.input("[bold red]version [/]?  (3.0.6)") or '3.1.0'
+    # print(graphname,server,user,password,version)
+    res[demo]["module"].start(graphname,server,user,password,version)
+
+def list_demos(args):
+    """
+    lists algos
+
+    Args:
+        args ([type]): [description]
+    """   
+    modules_by_id = {}
+
+    for view_folder in sorted([view.split('/')[-1] for (view, _, _) in os.walk('algos') if view != 'algos']):
+        try:
+            mod = importlib.import_module(f'algos.{view_folder}')
+            
+            if hasattr(mod, 'start'):
+                nfo = mod.info() if hasattr(mod, 'info') else {'name': view_folder}
+                mod_id = nfo['id'] if 'id' in nfo else nfo['name']
+                nfo_resolved = {
+                    'name': view_folder,
+                    'tags': [],
+                    **nfo,
+                    'id': mod_id,
+                    'module': mod,
+                }
+                
+                modules_by_id[mod_id] = nfo_resolved
+        except Exception as e :  # noqa: E722
+            pass
+    sorted_mods = sorted(modules_by_id.values(), key=lambda nfo: nfo['id'])
+    for i in range(len(sorted_mods)):
+        sorted_mods[i]['index'] = i
+    for e in modules_by_id:
+        print("ID  : [bold green] "+e+" [/] Algo Name : [bold green] " + modules_by_id[e]["name"]+"[/]")
+    res = modules_by_id
+    demo = ""
+    while (demo not in res):
+        demo = console.input("What is [i] the [/i] [bold red]algo to load [/]? ")
+    with open('conf.json') as json_file:
+        conf = json.load(json_file)
+
+    server = console.input("[bold red]server url [/]? ({}) ".format("https://{}.i.tgcloud.io".format(conf["DomainPrefix"]))) or "https://{}.i.tgcloud.io".format(conf["DomainPrefix"])
+    graphname = console.input("[bold red]graph name [/]? (MyGraph)") or "MyGraph"
+    user = console.input("[bold red]user [/]? (tigergraph)") or 'tigergraph'
+    password = console.input("[bold red]password [/]?  (*******)",password=True) or 'R4phuss456'
+    version = console.input("[bold red]version [/]?  (3.0.6)") or '3.1.0'
+    # print(graphname,server,user,password,version)
+    res[demo]["module"].start(graphname,server,user,password,version)
 
 if __name__ == "__main__":
     args = cliargs()
-    
-
-
-# total = len(sys.argv)
-# if total == 1 :
-#     help()
-# elif total == 2:
-#     action =  sys.argv[1]
-# elif total == 3:
-#     action =  sys.argv[1]
-#     id_machine = sys.argv[2]
-
-# if total > 1:
-#     if action == 'login':
-#         res = login()
-#     if action == 'demos':
-#         res = list_demos()
-#         demo = ""
-#         while (demo not in res):
-#             demo = console.input("What is [i] the [/i] [bold red]demo to start [/]? ")
-#         with open('conf.json') as json_file:
-#             conf = json.load(json_file)
-        
-#         server = console.input("[bold red]server url [/]? ({}) ".format("https://{}.i.tgcloud.io".format(conf["DomainPrefix"]))) or "https://{}.i.tgcloud.io".format(conf["DomainPrefix"])
-#         graphname = console.input("[bold red]graph name [/]? (MyGraph)") or "MyGraph"
-#         user = console.input("[bold red]user [/]? (tigergraph)") or 'tigergraph'
-#         password = console.input("[bold red]password [/]?  (*******)",password=True) or 'R4phuss456'
-#         version = console.input("[bold red]version [/]?  (3.0.6)") or '3.1.0'
-#         # print(graphname,server,user,password,version)
-#         res[demo]["module"].start(graphname,server,user,password,version)
-#     if action == 'list':
-#         f = open('creds.bank',"rb")
-#         res = decrypt(hasher, b64decode(f.read()))
-#         list_machine(res)
-#     elif action in ["start","stop","terminate"]:
-
-#         ops_machine(action.strip(),id_machine.strip(),res)
-#     elif action == "create":
-        
-#         conf = {"Name":"default","Tag":"blank","InitialPassword":"default","DomainPrefix":"domain","Description":"","Platform":"aws","InstanceType":"TG.Free","Region":"us-west-1","FirewallRules":[{"AllowedCIDR":["0.0.0.0/0"],"FromPort":1,"ToPort":65535,"Protocol":"tcp"}],"DiskGBPerNode":50,"PartitionFactor":1,"ReplicationFactor":1,"Version":"3.0.6","StarterKit":"Blank v3"}
-#         f = open('creds.bank',"rb")
-#         res = decrypt(hasher, b64decode(f.read()))
-#         conf["Name"] = console.input("[bold red]Solution Name[/]? ")
-#         conf["Tag"] = console.input("[bold red]Solution Tag[/]? ( optional ) ")
-#         conf["DomainPrefix"] = console.input("[bold red]Solution url[/]? ( <your_value>.i.tgcloud.io ) ")
-#         conf["InitialPassword"] = console.input("[bold red]Solution Password[/]? ",password=True)
-#         conf["Description"] = console.input("[bold red]Solution Description[/]? ( optional ) ")
-#         with open('conf.json', 'w') as outfile:
-#             json.dump(conf, outfile)    
-#         create_machine(res,conf)
