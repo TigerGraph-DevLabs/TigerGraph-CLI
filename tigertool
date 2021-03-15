@@ -22,6 +22,7 @@ import glob
 import json
 import requests
 import importlib
+import re
 
 # Arg Parser
 import argparse 
@@ -30,12 +31,63 @@ import argparse
 from base64 import b64encode, b64decode
 from simplecrypt import encrypt, decrypt
 
+# Fail Gracefully 
+import signal
+
+
 # Styling
 from rich import print
 from time import sleep
 from rich.console import Console
 from rich.table import Table
+
 console = Console(log_path=False)
+
+
+
+
+
+PREFIX_CURSOR_UP = "__GSQL__MOVE__CURSOR___UP__"
+PREFIX_CLEAN_LINE = "__GSQL__CLEAN__LINE__"
+PREFIX_INTERACT = "__GSQL__INTERACT__"
+PREFIX_RET = "__GSQL__RETURN__CODE__"
+PREFIX_COOKIE = "__GSQL__COOKIES__"
+
+
+FILE_PATTERN = re.compile("@[^@]*[^;,]")
+PROGRESS_PATTERN = re.compile("\\[=*\\s*\\]\\s[0-9]+%.*")
+COMPLETE_PATTERN = re.compile("\\[=*\\s*\\]\\s100%[^l]*")
+TOKEN_PATTERN = re.compile("- Token: ([^ ]+) expire at: (.+)")
+
+
+NULL_MODE = 0
+VERTEX_MODE = 1
+EDGE_MODE = 2
+GRAPH_MODE = 3
+JOB_MODE = 4
+QUERY_MODE = 5
+TUPLE_MODE = 6
+
+CATALOG_MODES = {
+    "Vertex Types": VERTEX_MODE,
+    "Edge Types": EDGE_MODE,
+    "Graphs": GRAPH_MODE,
+    "Jobs": JOB_MODE,
+    "Queries": QUERY_MODE,
+    "User defined tuples": TUPLE_MODE
+}
+
+
+def _is_mode_line(line):
+
+    return line.endswith(":")
+
+
+def _get_current_mode(line):
+
+    return CATALOG_MODES.get(line[:-1], NULL_MODE)
+
+
 
 # ToDo : 
 # 0. Move to native requests => Faster !!!
@@ -164,6 +216,8 @@ def ops_machine(args):
             print("[bold green]tgcloud response[/] {}".format(response.json()["Message"]))
         except Exception as e :
             print("[bold red]tgcloud response[/]  {}".format(e))
+    elif response.status_code == 401:
+        print("[bold red]tgcloud response[/]  Please re-login ")
 
 def create_machine(args):
     """
@@ -180,7 +234,7 @@ def create_machine(args):
     data["InitialPassword"] = console.input("[bold red]Solution Password[/]? ",password=True)
     data["Description"] = console.input("[bold red]Solution Description[/]? ( optional ) ")
     with open('conf.json', 'w') as outfile:
-        json.dump(conf, outfile)    
+        json.dump(data, outfile)    
 
     bearer = get_bearer()
     headers =  {
@@ -322,8 +376,6 @@ def login(args):
         if save =="":
             save  = console.input("Do you want to save [i]your[/i] [bold red]credentials[/]? (y/n) ")
 
-
-    
     def wait_loading():
         """ 
         Wait for selenium page to be ready 
@@ -491,16 +543,16 @@ def list_algos(args):
 
 def list_demos(args):
     """
-    lists algos
+    lists demos
 
     Args:
         args ([type]): [description]
     """   
     modules_by_id = {}
 
-    for view_folder in sorted([view.split('/')[-1] for (view, _, _) in os.walk('algos') if view != 'algos']):
+    for view_folder in sorted([view.split('/')[-1] for (view, _, _) in os.walk('templates') if view != 'templates']):
         try:
-            mod = importlib.import_module(f'algos.{view_folder}')
+            mod = importlib.import_module(f'templates.{view_folder}')
             
             if hasattr(mod, 'start'):
                 nfo = mod.info() if hasattr(mod, 'info') else {'name': view_folder}
@@ -520,11 +572,11 @@ def list_demos(args):
     for i in range(len(sorted_mods)):
         sorted_mods[i]['index'] = i
     for e in modules_by_id:
-        print("ID  : [bold green] "+e+" [/] Algo Name : [bold green] " + modules_by_id[e]["name"]+"[/]")
+        print("ID  : [bold green] "+e+" [/] Demo Name : [bold green] " + modules_by_id[e]["name"]+"[/]")
     res = modules_by_id
     demo = ""
     while (demo not in res):
-        demo = console.input("What is [i] the [/i] [bold red]algo to load [/]? ")
+        demo = console.input("What is [i] the [/i] [bold red]demo to load [/]? ")
     with open('conf.json') as json_file:
         conf = json.load(json_file)
 
@@ -534,7 +586,71 @@ def list_demos(args):
     password = console.input("[bold red]password [/]?  (*******)",password=True) or 'R4phuss456'
     version = console.input("[bold red]version [/]?  (3.0.6)") or '3.1.0'
     # print(graphname,server,user,password,version)
-    res[demo]["module"].start(graphname,server,user,password,version)
+    import pyTigerGraphBeta as tg
+    conn = tg.TigerGraphConnection(host=server,graphname=graphname,username=user,password=password,version=version)
+    print(catalog(conn.gsql("ls")))
+    # res[demo]["module"].start(graphname,server,user,password,version)
 
+def signal_handler(sig, frame):
+    """
+        Function to fail gracefully
+    """
+    print('\nterminating TigerTool!')
+    sys.exit(0)
+
+
+def catalog(lines):
+
+    vertices = []
+    edges = []
+    graphs = []
+    jobs = []
+    queries = []
+    tuples = []
+    print(lines)
+    current_mode = NULL_MODE
+
+    for line in lines:
+        line = line.strip()
+        if _is_mode_line(line):
+            current_mode = _get_current_mode(line)
+            continue
+
+        if line.startswith("- "):
+            line = line[2:]
+            if current_mode == VERTEX_MODE:
+                e = line.find("(")
+                vertices.append(line[7:e])
+            elif current_mode == EDGE_MODE:
+                s = line.find("EDGE ") + 5
+                e = line.find("(")
+                edges.append(line[s:e])
+            elif current_mode == GRAPH_MODE:
+                s = line.find("Graph ") + 6
+                e = line.find("(")
+                graphs.append(line[s:e])
+            elif current_mode == JOB_MODE:
+                s = line.find("JOB ") + 4
+                e = line.find(" FOR GRAPH")
+                jobs.append(line[s:e])
+            elif current_mode == QUERY_MODE:
+                e = line.find("(")
+                queries.append(line[:e])
+            elif current_mode == TUPLE_MODE:
+                e = line.find("(")
+                tuples.append(line[:e].strip())
+    return {
+        "vertices": vertices,
+        "edges": edges,
+        "graphs": graphs,
+        "jobs": jobs,
+        "queries": queries,
+        "tuples": tuples
+    }
+
+
+
+
+signal.signal(signal.SIGINT, signal_handler)
 if __name__ == "__main__":
     args = cliargs()
