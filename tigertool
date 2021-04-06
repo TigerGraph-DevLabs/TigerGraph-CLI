@@ -145,6 +145,10 @@ def cliargs():
     loginparser.set_defaults(func=login)
 
 
+    # ops Parser
+    opsparser = subparser.add_parser('li', help='Login to tgcloud.io')
+    opsparser.add_argument('-email',default="",help='Email address account for tgcloud.io')
+
     # List Parser 
     listparser = subparser.add_parser('list')
     listparser.set_defaults(func=list_machine)
@@ -163,11 +167,148 @@ def cliargs():
     demoparser.set_defaults(func=list_demos)
     # demoparser.add_argument('-activeonly',default="y",choices=["y","n"],help='hide terminated Boxes', nargs='?')
     # demoparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigertool', nargs='?')
-   
+    
+
+    # Fast Api Parser
+    fastparser = subparser.add_parser('api')
+    fastparser.set_defaults(func=api_mode)
 
     # End Of parsers
     args = parser.parse_args()
     args.func(args)
+
+
+from flask import Flask, request
+from argparse import ArgumentParser
+from flask_cors import CORS, cross_origin
+
+def api_mode(args):
+    app = Flask(__name__)
+    cors = CORS(app)
+    app.config['CORS_HEADERS'] = 'Content-Type'
+
+    @app.route("/")
+    def read_root():
+        return {"Hello": "tgcloud"}
+
+
+
+    @app.route("/loadtobox",methods=["POST"])
+    @cross_origin()
+    def tgcloud_loadtobox():
+        if request.method == "POST":
+           
+            server = request.form.get("host") or ""
+            user = request.form.get("username") or ""
+            password = request.form.get("password") or ""
+            graph = request.form.get("graph") or ""
+            import requests
+            gsql1="use GRAPH "+graph+"\n"+requests.get("https://raw.githubusercontent.com/TigerGraph-OSS/AMLSim_Python_Lab/main/db_scripts/query/page_rank.gsql").text.replace("AMLSim",graph)
+            gsql2="use GRAPH "+graph+"\n"+requests.get("https://raw.githubusercontent.com/TigerGraph-OSS/AMLSim_Python_Lab/main/db_scripts/query/label_prop.gsql").text.replace("AMLSim",graph)
+            print(gsql1)
+            import pyTigerGraphBeta as tg
+            conn = tg.TigerGraphConnection(host=server,graphname=graph,username=user,password=password,version="3.1.0")
+            res = conn.gsql(gsql1)
+            print(res)
+            res2 = conn.gsql(gsql2)
+            print(res2)
+            return {"True":"Done"}
+    @app.route("/loginbox",methods=["POST"])
+    @cross_origin()
+    def tgcloud_box():
+        if request.method == "POST":
+            server = request.form.get("host") or ""
+            user = request.form.get("username") or ""
+            password = request.form.get("password") or ""
+            print(server)
+            print(user)
+            print(password)
+            import time 
+            # time.sleep(5)
+            import pyTigerGraphBeta as tg
+            conn = tg.TigerGraphConnection(host=server,graphname="MyGraph",username=user,password=password,version="3.1.0")
+            import re
+
+            catss = "".join(conn.gsql("ls"))
+            res = re.search('- Graph (.*)\(', catss)
+            print(res.group(1))
+            return {"value":res.group(1)}
+
+
+
+    @app.route("/ops",methods=["POST"])
+    @cross_origin()
+    def tgcloud_ops():
+        if request.method == "POST":
+            token = request.form.get("token") or ""
+            action = request.form.get("action") or ""
+            id_machine = request.form.get("id_machine") or ""
+            headers = {
+                'authority': 'tgcloud.io',
+                'accept': 'application/json, text/plain, */*',
+                'authorization': token,
+                'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+                'content-type': 'application/json',
+                'origin': 'https://tgcloud.io',
+                'sec-fetch-site': 'same-origin',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-dest': 'empty',
+                'referer': 'https://tgcloud.io/app/solutions',
+                'accept-language': 'en-US,en;q=0.9,ar;q=0.8',
+            }
+            
+            response = requests.post('https://tgcloud.io/api/solution/{}/{}'.format(action,id_machine), headers=headers)
+            if response.status_code == 200:
+                if response.json()["Error"] == False:
+                    result = response.json()
+                    return result
+            else:
+                print(response.status_code)
+                return {"error":response.status_code}
+
+
+    @app.route("/list",methods=["POST"])
+    @cross_origin()
+    def tgcloud_listing():
+        if request.method == "POST":
+            token = request.form.get("token") or ""
+            headers = {
+                'authority': 'tgcloud.io',
+                'accept': 'application/json, text/plain, */*',
+                'authorization': token,
+                'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
+                'content-type': 'application/json',
+                'origin': 'https://tgcloud.io',
+                'sec-fetch-site': 'same-origin',
+                'sec-fetch-mode': 'cors',
+                'sec-fetch-dest': 'empty',
+                'referer': 'https://tgcloud.io/app/solutions',
+                'accept-language': 'en-US,en;q=0.9,ar;q=0.8',
+            }
+            response = requests.get('https://tgcloud.io/api/solution', headers=headers)
+            if response.status_code == 200:
+                if response.json()["Error"] == False:
+                    result = response.json()
+                    return result
+            else:
+                print(response.status_code)
+                return {"error":response.status_code}
+
+    @app.route("/login", methods=['POST'])
+    @cross_origin()
+    def tgcloud_login():
+        if request.method == 'POST':
+            userName = request.form.get('username') or ""
+            passWord = request.form.get('password') or ""
+            args = {}
+            args["email"] = userName
+            args["password"] = passWord
+            args["o"] = "api"
+            response = login(args)
+            print(response)
+            return response
+    app.run()
+
 
 def get_bearer():
     """
@@ -360,11 +501,21 @@ def login(args):
     Returns:
         [type]: [description]
     """
+    print(args)
+    
     if args:
-        mail = args.email
-        password = args.password 
-        save = args.save or "n" 
-        output = args.o
+        try:
+            mail = args.email
+            password = args.password 
+            save = args.save or "n" 
+            output = args.o
+        except:
+            mail = args['email']
+            password = args['password']
+            output = "api"
+            save = "n"
+    if output == "api" and (mail =="" or password ==""):
+        return {"error":"true","message":"missinig parameters"}
     if output == "json" and (mail =="" or password ==""):
         print('{"error":true,"message":"missinig parameters"}')
         exit()
@@ -387,7 +538,7 @@ def login(args):
     with suppress_stdout_stderr():
         driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
     
-    def cli_login(driver,mail,password,save):
+    def cli_login(driver,mail,password,save,output):
         driver.get("https://tgcloud.io/")
         while not(wait_loading):
             pass
@@ -415,7 +566,10 @@ def login(args):
         Password.send_keys(password)
         Password.send_keys(Keys.RETURN)
         ree = ""
-        WebDriverWait(driver, 30).until(EC.url_contains("id_token="))
+        try:
+            WebDriverWait(driver, 30).until(EC.url_contains("id_token="))
+        except:
+            return {"status":"error"}
         ree = driver.current_url
         
         if "access_token=" in ree:
@@ -425,15 +579,22 @@ def login(args):
             f = open("creds.bank","wb")
             f.write(b64encode(encrypt(hasher, result_token)))
             f.close()
-            print('{"error":false,"message":"login successful"}')
-            return True
+            if output == "json":
+                print('{"error":false,"message":"login successful"}')
+                return True
+            elif output == "api":
+                return {"Hello":"tgcloud","token":result_token}
         else:
-            print('{"error":true,"message":"login failed"}')
             driver.quit()
-            return False
+            if output == "json":
+                print('{"error":true,"message":"login failed"}')
+                return False
+            elif output == "api":
+                return {"Error":"KO"}
 
-    if output == "json":
-        cli_login(driver,mail,password,save)
+    if output == "json" or output == "api":
+        response = cli_login(driver,mail,password,save,output)
+        return response
     else:
         with console.status("[bold green]Connecting to tgcloud.io ...") as status:  #noqa
             sleep(1)
