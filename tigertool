@@ -1,4 +1,4 @@
-#!venv/bin/python3
+#!bin/python3
 
 # the webdriver for login part
 from selenium import webdriver 
@@ -29,7 +29,7 @@ import argparse
 
 # Crypting the creds.bank
 from base64 import b64encode, b64decode
-from simplecrypt import encrypt, decrypt
+#from simplecrypt import encrypt, decrypt
 
 # Fail Gracefully 
 import signal
@@ -59,6 +59,12 @@ PROGRESS_PATTERN = re.compile("\\[=*\\s*\\]\\s[0-9]+%.*")
 COMPLETE_PATTERN = re.compile("\\[=*\\s*\\]\\s100%[^l]*")
 TOKEN_PATTERN = re.compile("- Token: ([^ ]+) expire at: (.+)")
 
+
+res = requests.get("https://api.github.com/repos/tigergraph/gsql-graph-algorithms/contents/algorithms/schema-free")
+algos = {}
+for e in res.json():
+    if ".gsql" in e["name"]:
+        algos[e["name"]] = e["download_url"]
 
 NULL_MODE = 0
 VERTEX_MODE = 1
@@ -180,12 +186,12 @@ def cliargs():
 
 from flask import Flask, request
 from argparse import ArgumentParser
-from flask_cors import CORS, cross_origin
+#from flask_cors import CORS, cross_origin
 
 def api_mode(args):
     app = Flask(__name__)
-    cors = CORS(app)
-    app.config['CORS_HEADERS'] = 'Content-Type'
+    #cors = CORS(app)
+#    app.config['CORS_HEADERS'] = 'Content-Type'
 
     @app.route("/")
     def read_root():
@@ -194,7 +200,7 @@ def api_mode(args):
 
 
     @app.route("/loadtobox",methods=["POST"])
-    @cross_origin()
+    #@cross_origin()
     def tgcloud_loadtobox():
         if request.method == "POST":
            
@@ -202,19 +208,29 @@ def api_mode(args):
             user = request.form.get("username") or ""
             password = request.form.get("password") or ""
             graph = request.form.get("graph") or ""
+            algo  = request.form.get("algo") or ""
+            print(algo)
+            
             import requests
-            gsql1="use GRAPH "+graph+"\n"+requests.get("https://raw.githubusercontent.com/TigerGraph-OSS/AMLSim_Python_Lab/main/db_scripts/query/page_rank.gsql").text.replace("AMLSim",graph)
-            gsql2="use GRAPH "+graph+"\n"+requests.get("https://raw.githubusercontent.com/TigerGraph-OSS/AMLSim_Python_Lab/main/db_scripts/query/label_prop.gsql").text.replace("AMLSim",graph)
-            print(gsql1)
+            gsql = requests.get(algos[algo]).text.replace("{"," FOR GRAPH {} {{".format(graph),1)
+            import re
+            queryName = re.search('CREATE QUERY(.*)\(', gsql)
+            print(queryName.group(1))
+            gsql1="use GRAPH "+graph+"\n"+gsql+"INSTALL QUERY {}".format(queryName.group(1))
+            # gsql2="use GRAPH "+graph+"\n"+requests.get("https://raw.githubusercontent.com/TigerGraph-OSS/AMLSim_Python_Lab/main/db_scripts/query/label_prop.gsql").text.replace("AMLSim",graph)
+           
             import pyTigerGraphBeta as tg
-            conn = tg.TigerGraphConnection(host=server,graphname=graph,username=user,password=password,version="3.1.0")
-            res = conn.gsql(gsql1)
-            print(res)
-            res2 = conn.gsql(gsql2)
-            print(res2)
+            try:
+                conn = tg.TigerGraphConnection(host=server,graphname=graph,username=user,password=password,version="3.1.0")
+                res = conn.gsql(gsql1)
+                print(res)
+            except:
+                return {"False":"Done"}    
+            # res2 = conn.gsql(gsql2)
+            # print(res2)
             return {"True":"Done"}
     @app.route("/loginbox",methods=["POST"])
-    @cross_origin()
+    #@cross_origin()
     def tgcloud_box():
         if request.method == "POST":
             server = request.form.get("host") or ""
@@ -232,12 +248,16 @@ def api_mode(args):
             catss = "".join(conn.gsql("ls"))
             res = re.search('- Graph (.*)\(', catss)
             print(res.group(1))
-            return {"value":res.group(1)}
+
+            algos_select = ''
+            for algo in algos:
+                algos_select +='<option value="{}">{}</option>'.format(algo,algo)
+            return {"value":res.group(1),'algos':algos_select}
 
 
 
     @app.route("/ops",methods=["POST"])
-    @cross_origin()
+    #@cross_origin()
     def tgcloud_ops():
         if request.method == "POST":
             token = request.form.get("token") or ""
@@ -268,7 +288,7 @@ def api_mode(args):
 
 
     @app.route("/list",methods=["POST"])
-    @cross_origin()
+#    @cross_origin()
     def tgcloud_listing():
         if request.method == "POST":
             token = request.form.get("token") or ""
@@ -295,7 +315,7 @@ def api_mode(args):
                 return {"error":response.status_code}
 
     @app.route("/login", methods=['POST'])
-    @cross_origin()
+    #@cross_origin()
     def tgcloud_login():
         if request.method == 'POST':
             userName = request.form.get('username') or ""
@@ -307,7 +327,7 @@ def api_mode(args):
             response = login(args)
             print(response)
             return response
-    app.run()
+    app.run(debug=True,host="0.0.0.0")
 
 
 def get_bearer():
@@ -319,7 +339,7 @@ def get_bearer():
     """
     # try catch ? bearer not found or file not 
     f = open('creds.bank',"rb")
-    res = decrypt(hasher, b64decode(f.read()))
+    res = b64decode(f.read())
     return res
 
 def ops_machine(args):
@@ -534,9 +554,11 @@ def login(args):
         return driver.execute_script('return document.readyState;') != 'complete' 
 
     options = webdriver.ChromeOptions()
+    #options.add_argument("--no-sandbox")
     options.add_argument("--headless")
-    with suppress_stdout_stderr():
-        driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
+    #options.add_argument("--disable-dev-shm-using")
+    # with suppress_stdout_stderr():
+    driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
     
     def cli_login(driver,mail,password,save,output):
         driver.get("https://tgcloud.io/")
@@ -546,12 +568,13 @@ def login(args):
         try:
             myElem = WebDriverWait(driver, delay).until(EC.presence_of_element_located((By.XPATH, "//button[contains(@class,'login-btn')]"))) #noqa
         except:
+            print("Error with user/psw")
             return -1
         btn = driver.find_element_by_xpath("//button[contains(@class,'login-btn')]")
         driver.execute_script("arguments[0].click();", btn)
         while not(wait_loading):
             pass
-        # time.sleep(3)
+        time.sleep(3)
         myElem2 = None
         while not myElem2:
             try:
@@ -559,6 +582,7 @@ def login(args):
             except:
                 return -1
             time.sleep(0.5)
+        print("Page Loaded")
         time.sleep(2)
         Login=driver.find_element_by_name("email")
         Password=driver.find_element_by_name("password")
@@ -566,9 +590,15 @@ def login(args):
         Password.send_keys(password)
         Password.send_keys(Keys.RETURN)
         ree = ""
+        print(driver.current_url)
+        # for request in driver.requests:
+        #     #if request.response:
+        #     print(str(request.url))
         try:
             WebDriverWait(driver, 30).until(EC.url_contains("id_token="))
-        except:
+        except Exception as e:
+            print(e)
+            driver.close()
             return {"status":"error"}
         ree = driver.current_url
         
@@ -576,9 +606,9 @@ def login(args):
             result_token = "Bearer {}".format(ree.split("access_token=")[1].split("&")[0].strip()) 
             # print(result_token)
             driver.quit()
-            f = open("creds.bank","wb")
-            f.write(b64encode(encrypt(hasher, result_token)))
-            f.close()
+            #f = open("creds.bank","wb")
+            #f.write(b64encode( result_token))
+            #f.close()
             if output == "json":
                 print('{"error":false,"message":"login successful"}')
                 return True
@@ -635,9 +665,9 @@ def login(args):
                 result_token = "Bearer {}".format(ree.split("access_token=")[1].split("&")[0].strip()) 
                 # print(result_token)
                 driver.quit()
-                f = open("creds.bank","wb")
-                f.write(b64encode(encrypt(hasher, result_token)))
-                f.close()
+#                f = open("creds.bank","wb")
+#                f.write(b64encode(result_token))
+#                f.close()
                 console.log(f"Login Succesful :smiley:") 
                 return result_token
             else:
