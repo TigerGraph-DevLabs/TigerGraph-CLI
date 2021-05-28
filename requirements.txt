@@ -1,0 +1,6 @@
+selenium
+webdriver-manager
+selenium-wire
+argparser 
+rich
+pyTigerGraphBeta
