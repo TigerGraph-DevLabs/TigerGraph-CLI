@@ -11,18 +11,18 @@ def gsql_install(conn,graphname):
     content = gsql.read()
     gsql.close()
     res = ""
-#     try: 
-#         res = conn.gsql(content.format(graphname))
-#     except:
-#         print("")
-#     try:
-#         conn.gsql("""
-# USE GRAPH {0}
-# INSTALL QUERY  all_graph
-# INSTALL QUERY recommend_fruit
-# """.format(graphname))
-#     except:
-#         print("")
+    try: 
+        res = conn.gsql(content.format(graphname))
+    except:
+        print("")
+    try:
+        conn.gsql("""
+USE GRAPH {0}
+INSTALL QUERY  all_graph
+INSTALL QUERY recommend_fruit
+""".format(graphname))
+    except:
+        print("")
     return res
 
 
@@ -64,19 +64,18 @@ def start(graphname="MyGraph",server="",user="tigergraph",password="tigergraph",
     except Exception as e:
         print(e)
     try:
-        # gsql_install(conn,graphname)
+        gsql_install(conn,graphname)
         print("GSQL Installed")
     except Exception as e:
         print(e)
     try:
-        data_loader(conn,graphname)
+        # data_loader(conn,graphname)
         print("Loading Job Created")
     except Exception as e:
         print(e)
     try:
         conn.graphname = graphname
         secret = conn.createSecret()
-        # print(secret)
         conn.apiToken = conn.getToken(secret)[0]
         # print(conn.apiToken)
         res = conn.uploadFile(filePath="templates/demo1/purchase.csv",fileTag="f1",jobName="load_purchase_job",timeout=128000)
