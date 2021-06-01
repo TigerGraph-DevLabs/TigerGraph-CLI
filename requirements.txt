@@ -1,6 +1,7 @@
 selenium
 webdriver-manager
 selenium-wire
-argparser 
+argparse 
 rich
 pyTigerGraphBeta
+flask

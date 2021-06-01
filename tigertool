@@ -29,7 +29,7 @@ from time import sleep
 import argparse 
 
 # Crypting the creds.bank
-from base64 import b64encode, b64decode
+# from base64 import b64encode, b64decode
 #from simplecrypt import encrypt, decrypt   # Change the library Mac OS no support
 
 # Fail Gracefully 
@@ -41,6 +41,9 @@ from rich import print
 from rich.console import Console
 from rich.table import Table
 
+
+
+DEBUG =0 
 console = Console(log_path=False)
 
 
@@ -335,8 +338,10 @@ def get_bearer():
         [type]: [description]
     """
     # try catch ? bearer not found or file not 
-    f = open('creds.bank',"rb")
-    res = b64decode(f.read()).decode("utf8")
+    f = open('creds.bank',"r")
+    res = f.read()
+    if DEBUG:
+        print(res)
     return res
 
 def ops_machine(args):
@@ -461,10 +466,12 @@ def list_machine(args):
         'sec-fetch-mode': 'cors',
         'sec-fetch-dest': 'empty',
         'referer': 'https://tgcloud.io/app/solutions',
-        'accept-language': 'en-US,en;q=0.9,ar;q=0.8',
+        'accept-language': 'en-US,en;q=0.9,ar;q=0.8'
     }
 
     response = requests.get('https://tgcloud.io/api/solution', headers=headers)
+    if DEBUG:
+        print(response.status_code)
     if response.status_code == 200:
         if response.json()["Error"] == False:
             result = response.json()
@@ -553,8 +560,8 @@ def login(args):
     #options.add_argument("--no-sandbox")
     #options.add_argument("--headless")
     #options.add_argument("--disable-dev-shm-using")
-    # with suppress_stdout_stderr():
-    driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
+    with suppress_stdout_stderr():
+        driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
     
     def cli_login(driver,mail,password,save,output):
         driver.get("https://tgcloud.io/")
@@ -599,11 +606,14 @@ def login(args):
         ree = driver.current_url
         
         if "access_token=" in ree:
-            result_token = "Bearer {}".format(ree.split("access_token=")[1].split("&")[0].strip()) 
-            print(result_token)
+            import os 
+            print(os.getcwd())
+            result_token = "Bearer {}".format(ree.split("access_token=")[1].split("&")[0].replace("\n","")) 
+            if DEBUG:
+                print(result_token)
             driver.quit()
-            f = open("creds.bank","wb")
-            f.write(b64encode(result_token.encode('utf8')))
+            f = open("creds.bank","w+")
+            f.write(result_token)
             f.close()
             if output == "json":
                 print('{"error":false,"message":"login successful"}')
@@ -658,8 +668,15 @@ def login(args):
             
             #===================== END Login
             if "access_token=" in ree:
-                result_token = "Bearer {}".format(ree.split("access_token=")[1].split("&")[0].strip()) 
-                # print(result_token)
+                import os 
+                print(os.getcwd())
+                result_token = "Bearer {}".format(ree.split("access_token=")[1].split("&")[0].replace("\n","")) 
+                if DEBUG:
+                    print(result_token)
+                driver.quit()
+                f = open("creds.bank","w+")
+                f.write(result_token)
+                f.close()
                 driver.quit()
                 console.log(f"Login Succesful :smiley:") 
                 return result_token
