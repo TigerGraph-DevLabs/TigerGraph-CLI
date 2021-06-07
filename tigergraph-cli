@@ -1,4 +1,4 @@
-#!venv/bin/python3
+#!/usr/bin/python3
 
 # the webdriver for login part
 from selenium import webdriver 
@@ -43,8 +43,12 @@ from rich.table import Table
 
 
 
-DEBUG =0 
+DEBUG =0
 console = Console(log_path=False)
+
+# needed for pyinstaller export to maintain path relationship to algos and templates folders
+if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+    os.chdir(sys._MEIPASS)
 
 
 
@@ -152,7 +156,7 @@ def cliargs():
     loginparser.add_argument('-email',default="",help='Email address account for tgcloud.io')
     loginparser.add_argument('-password',default="",help='Password for tgcloud.io')
     loginparser.add_argument('-save',default="n", nargs='?',help='(Optional) save credentials (y/n)')
-    loginparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigertool', nargs='?')
+    loginparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigergraph-cli', nargs='?')
     loginparser.set_defaults(func=login)
 
     # OPS Parser
@@ -168,7 +172,7 @@ def cliargs():
     # List Parser 
     listparser = subparser.add_parser('list')
     listparser.add_argument('-activeonly',default="y",choices=["y","n"],help='hide terminated Boxes', nargs='?')
-    listparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigertool', nargs='?')
+    listparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigergraph-cli', nargs='?')
     listparser.set_defaults(func=list_machine)
    
 
@@ -176,13 +180,13 @@ def cliargs():
     algoparser = subparser.add_parser('algos')
     algoparser.set_defaults(func=list_algos)
     # algoparser.add_argument('-activeonly',default="y",choices=["y","n"],help='hide terminated Boxes', nargs='?')
-    # algoparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigertool', nargs='?')
+    # algoparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigergraph-cli', nargs='?')
    
     # Demo Parser 
     demoparser = subparser.add_parser('demos')
     demoparser.set_defaults(func=list_demos)
     # demoparser.add_argument('-activeonly',default="y",choices=["y","n"],help='hide terminated Boxes', nargs='?')
-    # demoparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigertool', nargs='?')
+    # demoparser.add_argument('-o',default="stdout",choices=["stdout","json"],help='Output for the tigergraph-cli', nargs='?')
     
 
     # Flask Parser
@@ -327,7 +331,7 @@ def api_mode(args):
             response = login(args)
             print(response)
             return response
-    app.run(debug=True,host="0.0.0.0")
+    app.run(debug=DEBUG,host="0.0.0.0")
 
 
 def get_bearer():
@@ -419,7 +423,7 @@ def create_machine(args):
     if response.status_code == 200:
         print("[bold green]tgcloud response[/] {}".format(response.json()["Message"]))
     elif response.json()["Error"] == True and "authenticate" in response.json()["Message"]:
-        print("You should relogin use ./tigertool login") 
+        print("You should relogin use ./tigergraph-cli login") 
     else:
         print(response.text)
 
@@ -496,7 +500,7 @@ def list_machine(args):
         if output == "json":
             print('{"error":true,"message":"Re-Login to tgcloud"}')
         else:
-            print("You should relogin use ./tigertool login") 
+            print("You should relogin use ./tigergraph-cli login") 
 
 def login_wizard():
     """
@@ -558,7 +562,7 @@ def login(args):
 
     options = webdriver.ChromeOptions()
     #options.add_argument("--no-sandbox")
-    #options.add_argument("--headless")
+    options.add_argument("--headless")
     #options.add_argument("--disable-dev-shm-using")
     with suppress_stdout_stderr():
         driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)
@@ -796,7 +800,7 @@ def signal_handler(sig, frame):
     """
         Function to fail gracefully
     """
-    print('\nterminating TigerTool!')
+    print('\nterminating tigergraph-cli!')
     sys.exit(0)
 
 

@@ -20,7 +20,7 @@ There are two different methods of operation with which you can use the TigerGra
 
 The first thing you will need to do is authenticate with your TigerGraph instance. 
 
-- run `python3 tigertool login`
+- run `python3 tigergraph-cli login`
 - enter your `tgcloud username` and `tgcloud password` where prompted
 - a browser window will open and begin running through the login process for TGCloud
     - please allow this process to complete without interrupting it
@@ -35,14 +35,14 @@ The first thing you will need to do is authenticate with your TigerGraph instanc
 
 Use this command to log into TigerGraph Cloud and authenticate future actions this session.
 
-`tigertool login [-email=TGCLOUD_EMAIL] [-password=TGCLOUD_PASSWORD] [-save=SAVE_CREDS] [-o=OUTPUT_FORMAT]`
+`tigergraph-cli login [-email=TGCLOUD_EMAIL] [-password=TGCLOUD_PASSWORD] [-save=SAVE_CREDS] [-o=OUTPUT_FORMAT]`
 
 | argument | description | accepted values | default |
 | -------- | ----------- | --------------- | ------- |
 | -email | The email address associated with your TigerGraph Cloud account | string containing user email address | "" |
 | -password | The password associated with your TigerGraph Cloud account | string containing user password | "" |
 | -save | Whether or not to save your credentials | "y" or "n" | "n" |
-| -o | results output format | "stdout", "json", "api" | "stdout" |
+| -o | results output format | "stdout", "json" | "stdout" |
 
 <hr>
 
@@ -50,7 +50,7 @@ Use this command to log into TigerGraph Cloud and authenticate future actions th
 
 Execute operations for maintaining your TigerGraph Cloud instances.
 
-`tigertool ops -action=ACTION_TYPE -id_machine=MACHINE_ID
+`tigergraph-cli ops -action=ACTION_TYPE -id=MACHINE_ID`
 
 | argument | description | accepted values | default |
 | -------- | ----------- | --------------- | ------- |
@@ -72,7 +72,7 @@ Execute operations for maintaining your TigerGraph Cloud instances.
 
 This command will list all solutions under your account
 
-`tigertool list [-activeonly=SHOW_INACTIVE] [-o=OUTPUT_FORMAT]`
+`tigergraph-cli list [-activeonly=SHOW_INACTIVE] [-o=OUTPUT_FORMAT]`
 
 | argument | description | accepted values | default |
 | -------- | ----------- | --------------- | ------- |
@@ -85,7 +85,7 @@ This command will list all solutions under your account
 
 List algorithms available to install on solutions
 
-`tigertool algos`
+`tigergraph-cli algos`
 
 Upon selecting an algorithm from this list, you will be prompted for the following information
 
@@ -94,7 +94,7 @@ Upon selecting an algorithm from this list, you will be prompted for the followi
 | server url | URL of the TigerGraph Cloud account | url for your account ending in '.tgcloud.io' | none |
 | graph name | Name of the graph to install the algorithm on | the name of any graph in your chosen solution | "MyGraph" |
 | user | username for authentication | username used for access GraphStudio | "tigergraph" |
-| password | password for chose user | password for slected user | none |
+| password | password for chosen user | password for slected user | none |
 | version | TigerGraph version of the selected solution | "3.0.6" or "3.1.0" | "3.0.6" |
 
 <hr>
@@ -103,7 +103,7 @@ Upon selecting an algorithm from this list, you will be prompted for the followi
 
 Install a demo on one of your exisitng solutions
 
-`tigertool demos`
+`tigergraph-cli demos`
 
 Upon selecting a demo from this list, you will be prompted for the following information
 
@@ -121,7 +121,7 @@ Upon selecting a demo from this list, you will be prompted for the following inf
 
 Enable API endpoints for interacting with the CLI
 
-`tigertool api`
+`tigergraph-cli api`
 
 Upon running this command, the API server will start and host the CLI API on `localhost:5000`. The following endpoints are exposed for interfacing.
 
