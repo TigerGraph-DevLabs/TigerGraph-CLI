@@ -1,7 +1,0 @@
-selenium
-webdriver-manager
-selenium-wire
-argparse
-rich
-pyTigerGraphBeta
-flask
