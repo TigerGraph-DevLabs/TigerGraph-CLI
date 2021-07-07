@@ -1,9 +1,9 @@
 # TigerGraph CLI project layout
 
 At a high level, these areas make up the `tgcli` project:
-- [`conf`]  - configration Manger
-- [`cloud`] - Cloud Manager
-- [`box`] - TigerGraph Instance Manager
+- [`conf`]  - Configration Manger. Commands that start with `tg conf` allow you to manage configurations used by `tgcli`, including user credentials for TigerGraph Cloud and instances managed by the Instance Manager. 
+- [`cloud`] - Cloud Manager. Commands that start with `tg cloud` allow you to manage the state of your TigerGraph Cloud solutions. 
+- [`box`] - Instance Manager. Commands that start with `tg box` allow you manage the instances added to your TigerGraph CLI configurations. 
 
 ## Installation 
 
@@ -59,24 +59,24 @@ optional arguments:
 ## Configuration Manager
 
 
-`tg conf -h` Use this command to manage TigerGraph Cloud and Instances configuration.
+Commands that start with `tg conf` manage TigerGraph Cloud and Instances configuration.
 
 ```
 usage: tg conf [-h] {tgcloud,add,delete,list} ...
 
 positional arguments:
   {tgcloud,add,delete,list}
-    tgcloud             tgcloud user Configuration
-    add                 add Configuration
-    delete              delete Configuration
-    list                list Configuration
+    tgcloud             TigerGraph Cloud user configuration
+    add                 add configuration
+    delete              delete configuration
+    list                list configurations
 
 optional arguments:
   -h, --help            show this help message and exit
 
 ```
 
-### tgcloud account 
+### Set up TigerGraph Cloud credentials
 
 `tg conf tgcloud -h` manages the tgcloud account credentials ( used by `tg cloud login`)
 
@@ -167,7 +167,7 @@ optional arguments:
 | -alias | The machine's alias to delete | string  | "" |
 
 
-## Cloud Functionalities
+## Cloud Manager
 
 
 `tg cloud -h` Use this command to manage TigerGraph Cloud instances state.
@@ -218,7 +218,7 @@ optional arguments:
 
 
 
-### Start/Stop/Terminate/Archive a tgcloud Machine 
+### Start/Stop/Terminate/Archive a TigerGraph Cloud solution 
 
 To change the state of a machine on tgcloud use:
 
@@ -229,7 +229,7 @@ tg cloud terminate -id <machine-id-from-list>
 tg cloud archive -id <machine-id-from-list>
 ```
 
-## Box Functionalities
+## Instance Manager
 
 
 `tg box -h` Use this command to manage TigerGraph Instances.
