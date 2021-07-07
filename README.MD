@@ -22,10 +22,7 @@ user@box $ wget https://tigertool.tigergraph.com/dl/linux/tgcli
 user@box $ sudo mv tgcli /usr/bin/
 user@box $ sudo chmod +x /usr/bin/tgcli
 ```
-Or, using snapcraft 
-```
-snap install tgcli
-```
+
 ### Windows:
 
 ```
