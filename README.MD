@@ -374,6 +374,6 @@ optional arguments:
   -t {ALL,SCHEMA,DATA}  backup Mode ( default : ALL )
 ```
 
-### Demos , Algos , Starter-Kit , Import ( Pending - Work in progress )
+### Demos , Algos , Starter-Kit , Restore (Import) ( Pending - Work in progress )
 
 :construction: these functionalities are pending release (work in progress).
