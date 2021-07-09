@@ -1,13 +1,13 @@
 
-Getting Started with TigerGraph CLI
-===================================
+Introduction
+============
 
 TigerGraph CLI consists of three major features:
 
 
-* [\ ``conf``\ ]  - Configration Manger. Commands that start with ``tg conf`` allow you to manage configurations used by ``tgcli``\ , including user credentials for TigerGraph Cloud and configurations for instances managed by the Box Manager. 
-* [\ ``cloud``\ ] - Cloud Manager. Commands that start with ``tg cloud`` allow you to manage the state of your TigerGraph Cloud solutions. Through ``tgcli``\ , you can create, view, stop and terminate your TigerGraph instances without going through the TigerGraph Cloud portal. 
-* [\ ``box``\ ] - Box Manager. Commands that start with ``tg box`` allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph *box*. Through the box manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your box. 
+* [\ ``conf``\ ]  - `Configration Manger <#configuration-manager>`_. Commands that start with ``tg conf`` allow you to manage configurations used by ``tgcli``\ , including user credentials for TigerGraph Cloud and configurations for instances managed by the Box Manager. 
+* [\ ``cloud``\ ] - `Cloud Manager <#cloud-manager>`_. Commands that start with ``tg cloud`` allow you to manage the state of your TigerGraph Cloud solutions. Through ``tgcli``\ , you can create, view, stop and terminate your TigerGraph instances without going through the TigerGraph Cloud portal. 
+* [\ ``box``\ ] - `Box Manager <#box-manager>`_. Commands that start with ``tg box`` allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph *box*. Through the box manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your box. 
 
 Installation
 ------------
@@ -66,11 +66,8 @@ In this case, we are getting Cloud Manager's command help.
    optional arguments:
      -h, --help            show this help message and exit
 
-How TigerGraph CLI works
-========================
-
 Configuration Manager
----------------------
+=====================
 
 Commands that start with ``tg conf`` manage the configurations used by ``tg-cli``\ , which include the user's TigerGraph Cloud credentials and configurations for the user's TigerGraph boxes. 
 
@@ -89,7 +86,7 @@ Commands that start with ``tg conf`` manage the configurations used by ``tg-cli`
      -h, --help            show this help message and exit
 
 Set up TigerGraph Cloud credentials
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------
 
 ``tg conf tgcloud -h`` manages the user's TigerGraph Cloud account credentials ( used by ``tg cloud login``\ )
 
@@ -117,7 +114,7 @@ Example :
    tg conf tgcloud -email <mail@domain.com> -password <password>
 
 List configurations
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 ``tg conf list`` lists all the configuration 
 
@@ -143,7 +140,7 @@ List configurations
     REST Port: 9000
 
 Add an instance
-^^^^^^^^^^^^^^^
+---------------
 
 ``tg conf add`` adds a TigerGraph instance (box) to the configuration store
 
@@ -200,7 +197,7 @@ Add an instance
 
 
 Delete a Machine/Box From Configuration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------
 
 ``tg conf delete`` deletes a box from the configuration store
 
@@ -226,9 +223,9 @@ Delete a Machine/Box From Configuration
 
 
 Cloud Manager
--------------
+=============
 
-``tg cloud -h`` Commands that start with ``tg cloud`` allow you to log in to your TigerGraph Cloud account and manage your TigerGraph Cloud instances.
+Commands that start with ``tg cloud`` allow you to log in to your TigerGraph Cloud account and manage your TigerGraph Cloud instances.
 
 .. code-block::
 
@@ -248,7 +245,7 @@ Cloud Manager
      -h, --help            show this help message and exit
 
 Cloud login
-^^^^^^^^^^^
+-----------
 
 To log in to your TigerGraph Cloud account, run the following command:
 
@@ -265,7 +262,7 @@ If you have already set up your TigerGraph credential through ``tg conf tgcloud`
 ``tg-cli`` will use the credentials you set up to log in to TigerGraph Cloud.
 
 List tgcloud instances
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Once you are logged in, to list tgcloud instances use:
 
@@ -300,7 +297,7 @@ Once you are logged in, to list tgcloud instances use:
 
 
 Start/Stop/Terminate/Archive a TigerGraph Cloud solution
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------------------------
 
 To change the state of a machine on TigerGraph Cloud use:
 
@@ -312,9 +309,9 @@ To change the state of a machine on TigerGraph Cloud use:
    tg cloud archive -id <machine-id-from-list>
 
 Box Manager
------------
+===========
 
-``tg box -h`` Commands that start with ``tg box`` allow you to perform sophisticated operations on your TigerGraph instances (boxes). 
+Commands that start with ``tg box`` allow you to perform sophisticated operations on your TigerGraph instances (boxes). 
 
 .. code-block::
 
@@ -336,9 +333,9 @@ Box Manager
      -h, --help            show this help message and exit
 
 Launch a GSQL terminal
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
-This function launches a GSQL terminal ( Pure Python )
+To launch a remote GSQL terminal ( Pure Python ):
 
 .. code-block:: SHELL
 
@@ -359,9 +356,9 @@ This function launches a GSQL terminal ( Pure Python )
      -gsPort [GSPORT]    GSQL Port ( default : 14240 )
 
 UDF Download/Upload
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
-Download/Upload UDF 
+To download/upload UDFs: 
 
 .. code-block:: SHELL
 
@@ -386,9 +383,9 @@ Full usage:
                            upload/download UDF ( default : download )
 
 UDT Download/Upload
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
-Download/Upload UDT
+To download/upload user-defined tuples (UDT)
 
 .. code-block:: SHELL
 
@@ -412,10 +409,10 @@ Full usage:
      -ops {download,upload}
                            upload/download UDT ( default : download )
 
-Manage GPE/GSE/RESTPP Services
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Manage GPE/GSE/RESTPP services
+------------------------------
 
-start/stop GPE/GSE/RESTPP
+To start or stop GPE/GSE/RESTPP services:
 
 .. code-block:: SHELL
 
@@ -436,8 +433,8 @@ Full usage:
      -gsPort [GSPORT]    GSQL Port ( default : 14240 )
      -ops {start,stop}   start/stop GPE/GSE/RESTPP ( default : start )
 
-backup a TigerGraph Instance ( Full , Data , Schema )
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Backup a TigerGraph Instance ( Full , Data , Schema )
+-----------------------------------------------------
 
 Backup a tigergraph instance 
 
@@ -462,7 +459,13 @@ Full usage:
      -restPort [RESTPORT]  Rest Port ( default : 9000 )
      -t {ALL,SCHEMA,DATA}  backup Mode ( default : ALL )
 
-Demos , Algos , Starter-Kit , Restore (Import) ( Pending - Work in progress )
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Work in progress
+================
 
-:construction: these functionalities are pending release (work in progress).
+We are actively developing new features for TigerGraph CLI. Below is a list of features that are currently under development:
+
+
+* Demos
+* Upload/Download graph algorithms
+* Load starter kits into instances
+* Database import/export

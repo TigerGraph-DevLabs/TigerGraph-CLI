@@ -3,12 +3,13 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Getting Started with TigerGraph CLI" href="README.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Introduction" href="README.html" />
 
-    <meta name="generator" content="sphinx-4.0.3, furo 2021.07.05.beta38"/>
+    <link rel="shortcut icon" href="_static/favicon.png"/><meta name="generator" content="sphinx-4.0.3, furo 2021.07.05.beta38"/>
         <title>Home - TigerGraph-CLI alpha documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css" />
     
 
@@ -112,8 +113,11 @@
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Getting Started with TigerGraph CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="README.html#how-tigergraph-cli-works">How TigerGraph CLI works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#configuration-manager">Configuration Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#id1">Cloud Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#id2">Box Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#work-in-progress">Work in progress</a></li>
 </ul>
 
 </div>
@@ -137,17 +141,33 @@
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Getting Started with TigerGraph CLI</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="README.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="README.html#command-line-help-text">Command-line help text</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="README.html#how-tigergraph-cli-works">How TigerGraph CLI works</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#configuration-manager">Configuration Manager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#cloud-manager">Cloud Manager</a></li>
-<li class="toctree-l2"><a class="reference internal" href="README.html#box-manager">Box Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#configuration-manager">Configuration Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="README.html#set-up-tigergraph-cloud-credentials">Set up TigerGraph Cloud credentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#list-configurations">List configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#add-an-instance">Add an instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#delete-a-machine-box-from-configuration">Delete a Machine/Box From Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#id1">Cloud Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="README.html#cloud-login">Cloud login</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#list-tgcloud-instances">List tgcloud instances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#start-stop-terminate-archive-a-tigergraph-cloud-solution">Start/Stop/Terminate/Archive a TigerGraph Cloud solution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#id2">Box Manager</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="README.html#launch-a-gsql-terminal">Launch a GSQL terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#udf-download-upload">UDF Download/Upload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#udt-download-upload">UDT Download/Upload</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#manage-gpe-gse-restpp-services">Manage GPE/GSE/RESTPP services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="README.html#backup-a-tigergraph-instance-full-data-schema">Backup a TigerGraph Instance ( Full , Data , Schema )</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="README.html#work-in-progress">Work in progress</a></li>
 </ul>
 </div>
 </section>
@@ -162,7 +182,7 @@
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Getting Started with TigerGraph CLI</div>
+                <div class="title">Introduction</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -215,5 +235,7 @@
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/main.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>

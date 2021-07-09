@@ -5,10 +5,11 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="Welcome to TigerGraph-CLI’s documentation!" href="index.html" />
 
-    <meta name="generator" content="sphinx-4.0.3, furo 2021.07.05.beta38"/>
-        <title>Getting Started with TigerGraph CLI - TigerGraph-CLI alpha documentation</title>
+    <link rel="shortcut icon" href="_static/favicon.png"/><meta name="generator" content="sphinx-4.0.3, furo 2021.07.05.beta38"/>
+        <title>Introduction - TigerGraph-CLI alpha documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css" />
     
 
@@ -112,8 +113,11 @@
 </form><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Getting Started with TigerGraph CLI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#how-tigergraph-cli-works">How TigerGraph CLI works</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#configuration-manager">Configuration Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id1">Cloud Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id2">Box Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#work-in-progress">Work in progress</a></li>
 </ul>
 
 </div>
@@ -128,13 +132,13 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <section id="getting-started-with-tigergraph-cli">
-<h1>Getting Started with TigerGraph CLI<a class="headerlink" href="#getting-started-with-tigergraph-cli" title="Permalink to this headline">¶</a></h1>
+        <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>TigerGraph CLI consists of three major features:</p>
 <ul class="simple">
-<li><p>[<code class="docutils literal notranslate"><span class="pre">conf</span></code>]  - Configration Manger. Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">conf</span></code> allow you to manage configurations used by <code class="docutils literal notranslate"><span class="pre">tgcli</span></code>, including user credentials for TigerGraph Cloud and configurations for instances managed by the Box Manager.</p></li>
-<li><p>[<code class="docutils literal notranslate"><span class="pre">cloud</span></code>] - Cloud Manager. Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">cloud</span></code> allow you to manage the state of your TigerGraph Cloud solutions. Through <code class="docutils literal notranslate"><span class="pre">tgcli</span></code>, you can create, view, stop and terminate your TigerGraph instances without going through the TigerGraph Cloud portal.</p></li>
-<li><p>[<code class="docutils literal notranslate"><span class="pre">box</span></code>] - Box Manager. Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">box</span></code> allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph <em>box</em>. Through the box manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your box.</p></li>
+<li><p>[<code class="docutils literal notranslate"><span class="pre">conf</span></code>]  - <a class="reference external" href="#configuration-manager">Configration Manger</a>. Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">conf</span></code> allow you to manage configurations used by <code class="docutils literal notranslate"><span class="pre">tgcli</span></code>, including user credentials for TigerGraph Cloud and configurations for instances managed by the Box Manager.</p></li>
+<li><p>[<code class="docutils literal notranslate"><span class="pre">cloud</span></code>] - <a class="reference external" href="#cloud-manager">Cloud Manager</a>. Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">cloud</span></code> allow you to manage the state of your TigerGraph Cloud solutions. Through <code class="docutils literal notranslate"><span class="pre">tgcli</span></code>, you can create, view, stop and terminate your TigerGraph instances without going through the TigerGraph Cloud portal.</p></li>
+<li><p>[<code class="docutils literal notranslate"><span class="pre">box</span></code>] - <a class="reference external" href="#box-manager">Box Manager</a>. Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">box</span></code> allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph <em>box</em>. Through the box manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your box.</p></li>
 </ul>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -185,10 +189,8 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </div>
 </section>
 </section>
-<section id="how-tigergraph-cli-works">
-<h1>How TigerGraph CLI works<a class="headerlink" href="#how-tigergraph-cli-works" title="Permalink to this headline">¶</a></h1>
 <section id="configuration-manager">
-<h2>Configuration Manager<a class="headerlink" href="#configuration-manager" title="Permalink to this headline">¶</a></h2>
+<h1>Configuration Manager<a class="headerlink" href="#configuration-manager" title="Permalink to this headline">¶</a></h1>
 <p>Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">conf</span></code> manage the configurations used by <code class="docutils literal notranslate"><span class="pre">tg-cli</span></code>, which include the user’s TigerGraph Cloud credentials and configurations for the user’s TigerGraph boxes.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">tg</span> <span class="n">conf</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">{</span><span class="n">tgcloud</span><span class="p">,</span><span class="n">add</span><span class="p">,</span><span class="n">delete</span><span class="p">,</span><span class="nb">list</span><span class="p">}</span> <span class="o">...</span>
 
@@ -204,7 +206,7 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </pre></div>
 </div>
 <section id="set-up-tigergraph-cloud-credentials">
-<h3>Set up TigerGraph Cloud credentials<a class="headerlink" href="#set-up-tigergraph-cloud-credentials" title="Permalink to this headline">¶</a></h3>
+<h2>Set up TigerGraph Cloud credentials<a class="headerlink" href="#set-up-tigergraph-cloud-credentials" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">conf</span> <span class="pre">tgcloud</span> <span class="pre">-h</span></code> manages the user’s TigerGraph Cloud account credentials ( used by <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">cloud</span> <span class="pre">login</span></code>)</p>
 <div class="table-wrapper"><table class="docutils align-default">
 <colgroup>
@@ -239,7 +241,7 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </div>
 </section>
 <section id="list-configurations">
-<h3>List configurations<a class="headerlink" href="#list-configurations" title="Permalink to this headline">¶</a></h3>
+<h2>List configurations<a class="headerlink" href="#list-configurations" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">conf</span> <span class="pre">list</span></code> lists all the configuration</p>
 <blockquote>
 <div><p>Example:</p>
@@ -264,7 +266,7 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </div>
 </section>
 <section id="add-an-instance">
-<h3>Add an instance<a class="headerlink" href="#add-an-instance" title="Permalink to this headline">¶</a></h3>
+<h2>Add an instance<a class="headerlink" href="#add-an-instance" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">conf</span> <span class="pre">add</span></code> adds a TigerGraph instance (box) to the configuration store</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">tg</span> <span class="n">conf</span> <span class="n">add</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">alias</span> <span class="n">ALIAS</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">user</span> <span class="n">USER</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">password</span> <span class="n">PASSWORD</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">host</span> <span class="p">[</span><span class="n">HOST</span><span class="p">]]</span> <span class="p">[</span><span class="o">-</span><span class="n">gsPort</span> <span class="p">[</span><span class="n">GSPORT</span><span class="p">]]</span>
                    <span class="p">[</span><span class="o">-</span><span class="n">restPort</span> <span class="p">[</span><span class="n">RESTPORT</span><span class="p">]]</span> <span class="p">[</span><span class="o">-</span><span class="n">default</span> <span class="p">[{</span><span class="n">y</span><span class="p">,</span><span class="n">n</span><span class="p">}]]</span>
@@ -334,7 +336,7 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </table></div>
 </section>
 <section id="delete-a-machine-box-from-configuration">
-<h3>Delete a Machine/Box From Configuration<a class="headerlink" href="#delete-a-machine-box-from-configuration" title="Permalink to this headline">¶</a></h3>
+<h2>Delete a Machine/Box From Configuration<a class="headerlink" href="#delete-a-machine-box-from-configuration" title="Permalink to this headline">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">conf</span> <span class="pre">delete</span></code> deletes a box from the configuration store</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">tg</span> <span class="n">conf</span> <span class="n">delete</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">alias</span> <span class="n">ALIAS</span><span class="p">]</span>
 
@@ -367,9 +369,9 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </table></div>
 </section>
 </section>
-<section id="cloud-manager">
-<h2>Cloud Manager<a class="headerlink" href="#cloud-manager" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">cloud</span> <span class="pre">-h</span></code> Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">cloud</span></code> allow you to log in to your TigerGraph Cloud account and manage your TigerGraph Cloud instances.</p>
+<section id="id1">
+<h1>Cloud Manager<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<p>Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">cloud</span></code> allow you to log in to your TigerGraph Cloud account and manage your TigerGraph Cloud instances.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">tg</span> <span class="n">cloud</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">{</span><span class="n">login</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">stop</span><span class="p">,</span><span class="n">terminate</span><span class="p">,</span><span class="n">archive</span><span class="p">,</span><span class="nb">list</span><span class="p">,</span><span class="n">create</span><span class="p">}</span> <span class="o">...</span>
 
 <span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
@@ -387,7 +389,7 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </pre></div>
 </div>
 <section id="cloud-login">
-<h3>Cloud login<a class="headerlink" href="#cloud-login" title="Permalink to this headline">¶</a></h3>
+<h2>Cloud login<a class="headerlink" href="#cloud-login" title="Permalink to this headline">¶</a></h2>
 <p>To log in to your TigerGraph Cloud account, run the following command:</p>
 <div class="highlight-SHELL notranslate"><div class="highlight"><pre><span></span>$ tg cloud login -email &lt;your_email&gt; -password &lt;your_password&gt;
 </pre></div>
@@ -399,7 +401,7 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 <p><code class="docutils literal notranslate"><span class="pre">tg-cli</span></code> will use the credentials you set up to log in to TigerGraph Cloud.</p>
 </section>
 <section id="list-tgcloud-instances">
-<h3>List tgcloud instances<a class="headerlink" href="#list-tgcloud-instances" title="Permalink to this headline">¶</a></h3>
+<h2>List tgcloud instances<a class="headerlink" href="#list-tgcloud-instances" title="Permalink to this headline">¶</a></h2>
 <p>Once you are logged in, to list tgcloud instances use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tg</span> <span class="n">cloud</span> <span class="nb">list</span>
 </pre></div>
@@ -441,7 +443,7 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </table></div>
 </section>
 <section id="start-stop-terminate-archive-a-tigergraph-cloud-solution">
-<h3>Start/Stop/Terminate/Archive a TigerGraph Cloud solution<a class="headerlink" href="#start-stop-terminate-archive-a-tigergraph-cloud-solution" title="Permalink to this headline">¶</a></h3>
+<h2>Start/Stop/Terminate/Archive a TigerGraph Cloud solution<a class="headerlink" href="#start-stop-terminate-archive-a-tigergraph-cloud-solution" title="Permalink to this headline">¶</a></h2>
 <p>To change the state of a machine on TigerGraph Cloud use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tg</span> <span class="n">cloud</span> <span class="n">start</span> <span class="o">-</span><span class="nb">id</span> <span class="o">&lt;</span><span class="n">machine</span><span class="o">-</span><span class="nb">id</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="nb">list</span><span class="o">&gt;</span>
 <span class="n">tg</span> <span class="n">cloud</span> <span class="n">stop</span> <span class="o">-</span><span class="nb">id</span> <span class="o">&lt;</span><span class="n">machine</span><span class="o">-</span><span class="nb">id</span><span class="o">-</span><span class="n">from</span><span class="o">-</span><span class="nb">list</span><span class="o">&gt;</span>
@@ -451,9 +453,9 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </div>
 </section>
 </section>
-<section id="box-manager">
-<h2>Box Manager<a class="headerlink" href="#box-manager" title="Permalink to this headline">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">box</span> <span class="pre">-h</span></code> Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">box</span></code> allow you to perform sophisticated operations on your TigerGraph instances (boxes).</p>
+<section id="id2">
+<h1>Box Manager<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h1>
+<p>Commands that start with <code class="docutils literal notranslate"><span class="pre">tg</span> <span class="pre">box</span></code> allow you to perform sophisticated operations on your TigerGraph instances (boxes).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">tg</span> <span class="n">box</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">{</span><span class="n">demos</span><span class="p">,</span><span class="n">algos</span><span class="p">,</span><span class="n">gsql</span><span class="p">,</span><span class="n">udf</span><span class="p">,</span><span class="n">udt</span><span class="p">,</span><span class="n">services</span><span class="p">,</span><span class="n">backup</span><span class="p">,</span><span class="n">import</span><span class="p">,</span><span class="n">starter</span><span class="o">-</span><span class="n">kit</span><span class="p">}</span> <span class="o">...</span>
 
 <span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
@@ -473,8 +475,8 @@ user@box $ sudo chmod +x /usr/bin/tgcli
 </pre></div>
 </div>
 <section id="launch-a-gsql-terminal">
-<h3>Launch a GSQL terminal<a class="headerlink" href="#launch-a-gsql-terminal" title="Permalink to this headline">¶</a></h3>
-<p>This function launches a GSQL terminal ( Pure Python )</p>
+<h2>Launch a GSQL terminal<a class="headerlink" href="#launch-a-gsql-terminal" title="Permalink to this headline">¶</a></h2>
+<p>To launch a remote GSQL terminal ( Pure Python ):</p>
 <div class="highlight-SHELL notranslate"><div class="highlight"><pre><span></span>user@box $ tg box gsql -alias &lt;your_box_alias&gt;
 Welcome to tigergraph
 GSQL &gt;
@@ -493,8 +495,8 @@ GSQL &gt;
 </div>
 </section>
 <section id="udf-download-upload">
-<h3>UDF Download/Upload<a class="headerlink" href="#udf-download-upload" title="Permalink to this headline">¶</a></h3>
-<p>Download/Upload UDF</p>
+<h2>UDF Download/Upload<a class="headerlink" href="#udf-download-upload" title="Permalink to this headline">¶</a></h2>
+<p>To download/upload UDFs:</p>
 <div class="highlight-SHELL notranslate"><div class="highlight"><pre><span></span>user@box $ tg box udf -alias &lt;your_box_alias&gt; -ops download
 user@box $ tg box udf -alias &lt;your_box_alias&gt; -ops upload
 </pre></div>
@@ -516,8 +518,8 @@ user@box $ tg box udf -alias &lt;your_box_alias&gt; -ops upload
 </div>
 </section>
 <section id="udt-download-upload">
-<h3>UDT Download/Upload<a class="headerlink" href="#udt-download-upload" title="Permalink to this headline">¶</a></h3>
-<p>Download/Upload UDT</p>
+<h2>UDT Download/Upload<a class="headerlink" href="#udt-download-upload" title="Permalink to this headline">¶</a></h2>
+<p>To download/upload user-defined tuples (UDT)</p>
 <div class="highlight-SHELL notranslate"><div class="highlight"><pre><span></span>user@box $ tg box udt -alias &lt;your_box_alias&gt; -ops download
 user@box $ tg box udt -alias &lt;your_box_alias&gt; -ops upload
 </pre></div>
@@ -539,8 +541,8 @@ user@box $ tg box udt -alias &lt;your_box_alias&gt; -ops upload
 </div>
 </section>
 <section id="manage-gpe-gse-restpp-services">
-<h3>Manage GPE/GSE/RESTPP Services<a class="headerlink" href="#manage-gpe-gse-restpp-services" title="Permalink to this headline">¶</a></h3>
-<p>start/stop GPE/GSE/RESTPP</p>
+<h2>Manage GPE/GSE/RESTPP services<a class="headerlink" href="#manage-gpe-gse-restpp-services" title="Permalink to this headline">¶</a></h2>
+<p>To start or stop GPE/GSE/RESTPP services:</p>
 <div class="highlight-SHELL notranslate"><div class="highlight"><pre><span></span>user@box $ tg box services -alias &lt;your_box_alias&gt; -ops start
 user@box $ tg box services -alias &lt;your_box_alias&gt; -ops stop
 </pre></div>
@@ -559,7 +561,7 @@ user@box $ tg box services -alias &lt;your_box_alias&gt; -ops stop
 </div>
 </section>
 <section id="backup-a-tigergraph-instance-full-data-schema">
-<h3>backup a TigerGraph Instance ( Full , Data , Schema )<a class="headerlink" href="#backup-a-tigergraph-instance-full-data-schema" title="Permalink to this headline">¶</a></h3>
+<h2>Backup a TigerGraph Instance ( Full , Data , Schema )<a class="headerlink" href="#backup-a-tigergraph-instance-full-data-schema" title="Permalink to this headline">¶</a></h2>
 <p>Backup a tigergraph instance</p>
 <div class="highlight-SHELL notranslate"><div class="highlight"><pre><span></span>user@box $ tg box backup -alias &lt;your_box_alias&gt;
 </pre></div>
@@ -580,15 +582,16 @@ user@box $ tg box services -alias &lt;your_box_alias&gt; -ops stop
 </pre></div>
 </div>
 </section>
-<section id="demos-algos-starter-kit-restore-import-pending-work-in-progress">
-<h3>Demos , Algos , Starter-Kit , Restore (Import) ( Pending - Work in progress )<a class="headerlink" href="#demos-algos-starter-kit-restore-import-pending-work-in-progress" title="Permalink to this headline">¶</a></h3>
-<dl class="field-list simple">
-<dt class="field-odd">construction</dt>
-<dd class="field-odd"><p>these functionalities are pending release (work in progress).</p>
-</dd>
-</dl>
 </section>
-</section>
+<section id="work-in-progress">
+<h1>Work in progress<a class="headerlink" href="#work-in-progress" title="Permalink to this headline">¶</a></h1>
+<p>We are actively developing new features for TigerGraph CLI. Below is a list of features that are currently under development:</p>
+<ul class="simple">
+<li><p>Demos</p></li>
+<li><p>Upload/Download graph algorithms</p></li>
+<li><p>Load starter kits into instances</p></li>
+<li><p>Database import/export</p></li>
+</ul>
 </section>
 
       </article>
@@ -637,7 +640,7 @@ user@box $ tg box services -alias &lt;your_box_alias&gt; -ops stop
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Getting Started with TigerGraph CLI</a><ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
 <li><a class="reference internal" href="#mac-os">Mac OS:</a></li>
 <li><a class="reference internal" href="#linux">Linux:</a></li>
@@ -647,7 +650,6 @@ user@box $ tg box services -alias &lt;your_box_alias&gt; -ops stop
 <li><a class="reference internal" href="#command-line-help-text">Command-line help text</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#how-tigergraph-cli-works">How TigerGraph CLI works</a><ul>
 <li><a class="reference internal" href="#configuration-manager">Configuration Manager</a><ul>
 <li><a class="reference internal" href="#set-up-tigergraph-cloud-credentials">Set up TigerGraph Cloud credentials</a></li>
 <li><a class="reference internal" href="#list-configurations">List configurations</a></li>
@@ -655,23 +657,21 @@ user@box $ tg box services -alias &lt;your_box_alias&gt; -ops stop
 <li><a class="reference internal" href="#delete-a-machine-box-from-configuration">Delete a Machine/Box From Configuration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#cloud-manager">Cloud Manager</a><ul>
+<li><a class="reference internal" href="#id1">Cloud Manager</a><ul>
 <li><a class="reference internal" href="#cloud-login">Cloud login</a></li>
 <li><a class="reference internal" href="#list-tgcloud-instances">List tgcloud instances</a></li>
 <li><a class="reference internal" href="#start-stop-terminate-archive-a-tigergraph-cloud-solution">Start/Stop/Terminate/Archive a TigerGraph Cloud solution</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#box-manager">Box Manager</a><ul>
+<li><a class="reference internal" href="#id2">Box Manager</a><ul>
 <li><a class="reference internal" href="#launch-a-gsql-terminal">Launch a GSQL terminal</a></li>
 <li><a class="reference internal" href="#udf-download-upload">UDF Download/Upload</a></li>
 <li><a class="reference internal" href="#udt-download-upload">UDT Download/Upload</a></li>
-<li><a class="reference internal" href="#manage-gpe-gse-restpp-services">Manage GPE/GSE/RESTPP Services</a></li>
-<li><a class="reference internal" href="#backup-a-tigergraph-instance-full-data-schema">backup a TigerGraph Instance ( Full , Data , Schema )</a></li>
-<li><a class="reference internal" href="#demos-algos-starter-kit-restore-import-pending-work-in-progress">Demos , Algos , Starter-Kit , Restore (Import) ( Pending - Work in progress )</a></li>
+<li><a class="reference internal" href="#manage-gpe-gse-restpp-services">Manage GPE/GSE/RESTPP services</a></li>
+<li><a class="reference internal" href="#backup-a-tigergraph-instance-full-data-schema">Backup a TigerGraph Instance ( Full , Data , Schema )</a></li>
 </ul>
 </li>
-</ul>
-</li>
+<li><a class="reference internal" href="#work-in-progress">Work in progress</a></li>
 </ul>
 
           </div>
@@ -686,5 +686,7 @@ user@box $ tg box services -alias &lt;your_box_alias&gt; -ops stop
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/scripts/main.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
     </body>
 </html>

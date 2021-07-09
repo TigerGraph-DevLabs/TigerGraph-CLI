@@ -31,6 +31,7 @@ release = 'alpha'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx_copybutton'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -55,6 +56,7 @@ html_theme = 'furo'
 html_static_path = ['_static']
 
 html_logo = "logo.png"
+html_favicon = "favicon.png"
 
 html_theme_options = {
     "sidebar_hide_name": True
