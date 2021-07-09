@@ -2,9 +2,9 @@
 
 The TigerGraph CLI consists of three major features:
 
-- [`conf`]  - Configration Manger. Commands that start with `tg conf` allow you to manage configurations used by `tgcli`, including user credentials for TigerGraph Cloud and instances managed by the Box Manager. 
+- [`conf`]  - Configration Manger. Commands that start with `tg conf` allow you to manage configurations used by `tgcli`, including user credentials for TigerGraph Cloud and configurations for instances managed by the Box Manager. 
 - [`cloud`] - Cloud Manager. Commands that start with `tg cloud` allow you to manage the state of your TigerGraph Cloud solutions. Through `tgcli`, you can create, view, stop and terminate your TigerGraph instances without going through the TigerGraph Cloud portal. 
-- [`box`] - Box Manager. Commands that start with `tg box` allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph _box_. Throught the box manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your box. 
+- [`box`] - Box Manager. Commands that start with `tg box` allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph *box*. Through the box manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your box. 
 
 ## Installation 
 
@@ -79,7 +79,7 @@ optional arguments:
 
 ### Set up TigerGraph Cloud credentials
 
-`tg conf tgcloud -h` manages the tgcloud account credentials ( used by `tg cloud login`)
+`tg conf tgcloud -h` manages the user's TigerGraph Cloud account credentials ( used by `tg cloud login`)
 
 | Argument | Description | Accepted values | Default |
 | -------- | ----------- | --------------- | ------- |
