@@ -1,9 +1,10 @@
 # TigerGraph CLI project layout
 
-At a high level, these areas make up the `tgcli` project:
-- [`conf`]  - configration Manger
-- [`cloud`] - Cloud Manager
-- [`box`] - TigerGraph Instance Manager
+The TigerGraph CLI consists of three major features:
+
+- [`conf`]  - Configration Manger. Commands that start with `tg conf` allow you to manage configurations used by `tgcli`, including user credentials for TigerGraph Cloud and configurations for instances managed by the Box Manager. 
+- [`cloud`] - Cloud Manager. Commands that start with `tg cloud` allow you to manage the state of your TigerGraph Cloud solutions. Through `tgcli`, you can create, view, stop and terminate your TigerGraph instances without going through the TigerGraph Cloud portal. 
+- [`box`] - Box Manager. Commands that start with `tg box` allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph *box*. Through the box manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your box. 
 
 ## Installation 
 
@@ -35,7 +36,7 @@ Running `tg <module> -h` displays help text for a topic.
 
 Example : `tg cloud -h` 
 
-In this case, we are getting the cloud's command help. 
+In this case, we are getting Cloud Manager's command help. 
 
 ```
 usage: tg cloud [-h] {login,start,stop,terminate,archive,list,create} ...
@@ -59,31 +60,31 @@ optional arguments:
 ## Configuration Manager
 
 
-`tg conf -h` Use this command to manage TigerGraph Cloud and Instances configuration.
+Commands that start with `tg conf` manage the configurations used by `tg-cli`, which include the user's TigerGraph Cloud credentials and configurations for the user's TigerGraph boxes. 
 
 ```
 usage: tg conf [-h] {tgcloud,add,delete,list} ...
 
 positional arguments:
   {tgcloud,add,delete,list}
-    tgcloud             tgcloud user Configuration
-    add                 add Configuration
-    delete              delete Configuration
-    list                list Configuration
+    tgcloud             TigerGraph Cloud user configuration
+    add                 add configuration
+    delete              delete configuration
+    list                list configurations
 
 optional arguments:
   -h, --help            show this help message and exit
 
 ```
 
-### tgcloud account 
+### Set up TigerGraph Cloud credentials
 
-`tg conf tgcloud -h` manages the tgcloud account credentials ( used by `tg cloud login`)
+`tg conf tgcloud -h` manages the user's TigerGraph Cloud account credentials ( used by `tg cloud login`)
 
-| argument | description | accepted values | default |
+| Argument | Description | Accepted values | Default |
 | -------- | ----------- | --------------- | ------- |
-| -email | The email address associated with your TigerGraph Cloud account | string containing user email address | "" |
-| -password | The password associated with your TigerGraph Cloud account | string containing user password | "" |
+| -email | The email address associated with your TigerGraph Cloud account | String containing user email address | "" |
+| -password | The password associated with your TigerGraph Cloud account | String containing user password | "" |
 
 Example : 
 
@@ -91,9 +92,9 @@ Example :
 tg conf tgcloud -email <mail@domain.com> -password <password>
 ```
 
-### Machines ( refered to as box ) Configuration list
+### List configurations
 
-`tg conf list -h` lists all the configuration 
+`tg conf list` lists all the configuration 
  
  Example:
  ```
@@ -115,9 +116,9 @@ Machine: alias = Machine2
  REST Port: 9000
  ```
  
-### Add a Machine/Box 
+### Add an instance 
 
-`tg conf add -h` add a machine to the configuration store
+`tg conf add` adds a TigerGraph instance (box) to the configuration store
 
 ```
 usage: tg conf add [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
@@ -136,7 +137,7 @@ optional arguments:
 ```
 
 
-| argument | description | accepted values | default |
+| Argument | Description | Accepted values | Default |
 | -------- | ----------- | --------------- | ------- |
 | -alias | The name given to the box for using it later | string  | "" |
 | -user | tigergraph user by defaulttigergraph  | string  | tigergraph |
@@ -149,7 +150,7 @@ optional arguments:
 
 ### Delete a Machine/Box From Configuration
 
-`tg conf delete -h` add a machine to the configuration store
+`tg conf delete` deletes a box from the configuration store
 
 ```
 usage: tg conf delete [-h] [-alias ALIAS]
@@ -162,15 +163,15 @@ optional arguments:
 ```
 
 
-| argument | description | accepted values | default |
+| Argument | description | Accepted values | Default |
 | -------- | ----------- | --------------- | ------- |
 | -alias | The machine's alias to delete | string  | "" |
 
 
-## Cloud Functionalities
+## Cloud Manager
 
 
-`tg cloud -h` Use this command to manage TigerGraph Cloud instances state.
+`tg cloud -h` Commands that start with `tg cloud` allow you to log in to your TigerGraph Cloud account and manage your TigerGraph Cloud instances.
 
 ```
 usage: tg cloud [-h] {login,start,stop,terminate,archive,list,create} ...
@@ -191,11 +192,19 @@ optional arguments:
 ```
 
 ### Cloud login
+To log in to your TigerGraph Cloud account, run the following command:
+```SHELL
+$ tg cloud login -email <your_email> -password <your_password>
+```
 
+If you have already set up your TigerGraph credential through `tg conf tgcloud`, then just run:
+```
+$ tg cloud login
+```
+`tg-cli` will use the credentials you set up to log in to TigerGraph Cloud.
 
 ### List tgcloud instances 
-
-To list tgcloud instances use:
+Once you are logged in, to list tgcloud instances use:
 
 ```
 tg cloud list 
@@ -218,9 +227,9 @@ optional arguments:
 
 
 
-### Start/Stop/Terminate/Archive a tgcloud Machine 
+### Start/Stop/Terminate/Archive a TigerGraph Cloud solution 
 
-To change the state of a machine on tgcloud use:
+To change the state of a machine on TigerGraph Cloud use:
 
 ```
 tg cloud start -id <machine-id-from-list>
@@ -229,10 +238,10 @@ tg cloud terminate -id <machine-id-from-list>
 tg cloud archive -id <machine-id-from-list>
 ```
 
-## Box Functionalities
+## Box Manager
 
 
-`tg box -h` Use this command to manage TigerGraph Instances.
+`tg box -h` Commands that start with `tg box` allow you to perform sophisticated operations on your TigerGraph instances (boxes). 
 
 ```
 usage: tg box [-h] {demos,algos,gsql,udf,udt,services,backup,import,starter-kit} ...
@@ -253,9 +262,9 @@ optional arguments:
   -h, --help            show this help message and exit
 
 ```
-### gsql terminal 
+### Launch a GSQL terminal 
 
-This function launches a gsql terminal ( Pure Python )
+This function launches a GSQL terminal ( Pure Python )
 
 ```SHELL
 user@box $ tg box gsql -alias <your_box_alias>
