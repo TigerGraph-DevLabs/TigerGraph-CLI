@@ -239,7 +239,7 @@ tg cloud archive -id <machine-id-from-list>
 # Server Manager
 
 
-Commands that start with `tg server` allow you to perform sophisticated operations on your TigerGraph instances (boxes). 
+Commands that start with `tg server` allow you to perform sophisticated operations on your TigerGraph instances (servers). 
 
 ```
 usage: tg server [-h] {demos,algos,gsql,udf,udt,services,backup,import,starter-kit} ...
@@ -265,7 +265,7 @@ optional arguments:
 To launch a remote GSQL terminal ( Pure Python ):
 
 ```SHELL
-user@server $ tg server gsql -alias <your_box_alias>
+user@server $ tg server gsql -alias <your_server_alias>
 Welcome to tigergraph
 GSQL > 
 ```
