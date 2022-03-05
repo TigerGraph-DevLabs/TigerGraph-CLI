@@ -2,9 +2,9 @@
 
 TigerGraph CLI consists of three major features:
 
-- [`conf`]  - [Configration Manger](#configuration-manager). Commands that start with `tg conf` allow you to manage configurations used by `tgcli`, including user credentials for TigerGraph Cloud and configurations for instances managed by the Box Manager. 
+- [`conf`]  - [Configration Manger](#configuration-manager). Commands that start with `tg conf` allow you to manage configurations used by `tgcli`, including user credentials for TigerGraph Cloud and configurations for instances managed by the Server Manager. 
 - [`cloud`] - [Cloud Manager](#cloud-manager). Commands that start with `tg cloud` allow you to manage the state of your TigerGraph Cloud solutions. Through `tgcli`, you can create, view, stop and terminate your TigerGraph instances without going through the TigerGraph Cloud portal. 
-- [`box`] - [Box Manager](#box-manager). Commands that start with `tg box` allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph *box*. Through the box manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your box. 
+- [`server`] - [Server Manager](#server-manager). Commands that start with `tg server` allow you to perform sophisticated operations on the instances added to your TigerGraph CLI configurations. Such an instances is called a TigerGraph *server*. Through the server manager, you can download/upload user-defined functions (UDF), import/export solutions, start/stop services and even start a GSQL shell and run commands on your server. 
 
 ## Installation 
 
@@ -19,9 +19,9 @@ brew install tgcli
 To install TigerGraph Cli on Linux 
 
 ```SHELL
-user@box $ wget https://tigertool.tigergraph.com/dl/linux/tgcli
-user@box $ sudo mv tgcli /usr/bin/
-user@box $ sudo chmod +x /usr/bin/tgcli
+user@server $ wget https://tigertool.tigergraph.com/dl/linux/tgcli
+user@server $ sudo mv tgcli /usr/bin/
+user@server $ sudo chmod +x /usr/bin/tgcli
 ```
 
 ### Windows:
@@ -58,7 +58,7 @@ optional arguments:
 # Configuration Manager
 
 
-Commands that start with `tg conf` manage the configurations used by `tg-cli`, which include the user's TigerGraph Cloud credentials and configurations for the user's TigerGraph boxes. 
+Commands that start with `tg conf` manage the configurations used by `tg-cli`, which include the user's TigerGraph Cloud credentials and configurations for the user's TigerGraph servers. 
 
 ```
 usage: tg conf [-h] {tgcloud,add,delete,list} ...
@@ -116,7 +116,7 @@ Machine: alias = Machine2
  
 ## Add an instance 
 
-`tg conf add` adds a TigerGraph instance (box) to the configuration store
+`tg conf add` adds a TigerGraph instance (server) to the configuration store
 
 ```
 usage: tg conf add [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
@@ -124,7 +124,7 @@ usage: tg conf add [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host 
 
 optional arguments:
   -h, --help            show this help message and exit
-  -alias ALIAS          the name used for referring to the tigergraph Box
+  -alias ALIAS          the name used for referring to the tigergraph Server
   -user USER            tigergraph user ( default : tigergraph )
   -password PASSWORD    tigergraph password ( default : tigergraph )
   -host [HOST]          tigergraph host ( default : http://127.0.0.1 )
@@ -213,7 +213,7 @@ usage: tg cloud list [-h] [-activeonly [{y,n}]] [-o [{stdout,json}]]
 
 optional arguments:
   -h, --help           show this help message and exit
-  -activeonly [{y,n}]  Hide terminated Boxes
+  -activeonly [{y,n}]  Hide terminated Servers
   -o [{stdout,json}]   Output for the tigergraph-cli
 
 ```
@@ -236,25 +236,25 @@ tg cloud terminate -id <machine-id-from-list>
 tg cloud archive -id <machine-id-from-list>
 ```
 
-# Box Manager
+# Server Manager
 
 
-Commands that start with `tg box` allow you to perform sophisticated operations on your TigerGraph instances (boxes). 
+Commands that start with `tg server` allow you to perform sophisticated operations on your TigerGraph instances (boxes). 
 
 ```
-usage: tg box [-h] {demos,algos,gsql,udf,udt,services,backup,import,starter-kit} ...
+usage: tg server [-h] {demos,algos,gsql,udf,udt,services,backup,import,starter-kit} ...
 
 positional arguments:
   {demos,algos,gsql,udf,udt,services,backup,import,starter-kit}
-    demos               Loads demos to TigerGraph box.
-    algos               Loads algos to TigerGraph box.
+    demos               Loads demos to TigerGraph server.
+    algos               Loads algos to TigerGraph server.
     gsql                Execute a gsql terminal.
-    udf                 get/update UDF for TigerGraph box.
-    udt                 get/update UDT for TigerGraph box.
-    services            Start/Stop GPE/GSE/RESTPP Services in TigerGraph box.
-    backup              Backup a TigerGraph box.
-    import              Import a TigerGraph box from a ZIP file.
-    starter-kit         Load a starter kit to TigerGraph box
+    udf                 get/update UDF for TigerGraph server.
+    udt                 get/update UDT for TigerGraph server.
+    services            Start/Stop GPE/GSE/RESTPP Services in TigerGraph server.
+    backup              Backup a TigerGraph server.
+    import              Import a TigerGraph server from a ZIP file.
+    starter-kit         Load a starter kit to TigerGraph server
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -265,17 +265,17 @@ optional arguments:
 To launch a remote GSQL terminal ( Pure Python ):
 
 ```SHELL
-user@box $ tg box gsql -alias <your_box_alias>
+user@server $ tg server gsql -alias <your_box_alias>
 Welcome to tigergraph
 GSQL > 
 ```
 
 ```
-usage: tg box gsql [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
+usage: tg server gsql [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
 
 optional arguments:
   -h, --help          show this help message and exit
-  -alias ALIAS        tigergraph Box to use
+  -alias ALIAS        tigergraph Server to use
   -user USER          tigergraph user ( default : tigergraph )
   -password PASSWORD  tigergraph password ( default : tigergraph )
   -host [HOST]        tigergraph host ( default : http://127.0.0.1)
@@ -288,17 +288,17 @@ optional arguments:
 To download/upload UDFs: 
 
 ```SHELL
-user@box $ tg box udf -alias <your_box_alias> -ops download
-user@box $ tg box udf -alias <your_box_alias> -ops upload
+user@server $ tg server udf -alias <your_server_alias> -ops download
+user@sever $ tg server udf -alias <your_server_alias> -ops upload
 ```
 Full usage:
 ```
-usage: tg box udf [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
+usage: tg server udf [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
                   [-ops {download,upload}]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -alias ALIAS          tigergraph Box to use
+  -alias ALIAS          tigergraph Server to use
   -user USER            tigergraph user ( default : tigergraph )
   -password PASSWORD    tigergraph password ( default : tigergraph )
   -host [HOST]          tigergraph host ( default : http://127.0.0.1)
@@ -313,18 +313,18 @@ optional arguments:
 To download/upload user-defined tuples (UDT)
 
 ```SHELL
-user@box $ tg box udt -alias <your_box_alias> -ops download
-user@box $ tg box udt -alias <your_box_alias> -ops upload
+user@server $ tg server udt -alias <your_server_alias> -ops download
+user@server $ tg server udt -alias <your_server_alias> -ops upload
 ```
 Full usage: 
 
 ```
-usage: tg box udt [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
+usage: tg server udt [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
                   [-ops {download,upload}]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -alias ALIAS          tigergraph Box to use
+  -alias ALIAS          tigergraph Server to use
   -user USER            tigergraph user ( default : tigergraph )
   -password PASSWORD    tigergraph password ( default : tigergraph )
   -host [HOST]          tigergraph host ( default : http://127.0.0.1 )
@@ -338,14 +338,14 @@ optional arguments:
 To start or stop GPE/GSE/RESTPP services:
 
 ```SHELL
-user@box $ tg box services -alias <your_box_alias> -ops start
-user@box $ tg box services -alias <your_box_alias> -ops stop
+user@server $ tg server services -alias <your_server_alias> -ops start
+user@server $ tg server services -alias <your_server_alias> -ops stop
 ```
 
 Full usage:
 
 ```
-usage: tg box services [-h] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]] [-ops {start,stop}]
+usage: tg server services [-h] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]] [-ops {start,stop}]
 
 optional arguments:
   -h, --help          show this help message and exit
@@ -362,17 +362,17 @@ optional arguments:
 Backup a tigergraph instance 
 
 ```SHELL
-user@box $ tg box backup -alias <your_box_alias> 
+user@server $ tg server backup -alias <your_server_alias> 
 ```
 
 Full usage:
 ```
-usage: tg box backup [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
+usage: tg server backup [-h] [-alias ALIAS] [-user USER] [-password PASSWORD] [-host [HOST]] [-gsPort [GSPORT]]
                      [-restPort [RESTPORT]] [-t {ALL,SCHEMA,DATA}]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -alias ALIAS          tigergraph Box to use
+  -alias ALIAS          tigergraph Server to use
   -user USER            tigergraph user ( default : tigergraph )
   -password PASSWORD    tigergraph password ( default : tigergraph )
   -host [HOST]          tigergraph host ( default : http://127.0.0.1 )
