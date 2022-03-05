@@ -137,25 +137,25 @@ optional arguments:
 
 | Argument | Description | Accepted values | Default |
 | -------- | ----------- | --------------- | ------- |
-| -alias | The name given to the box for using it later | string  | "" |
+| -alias | The name given to the server for using it later | string  | "" |
 | -user | tigergraph user by defaulttigergraph  | string  | tigergraph |
 | -password | tigergraph user's password  | string  | tigergraph |
 | -host | host value for tigergraph  | string  | http://127.0.0.1 |
 | -gsPort | GSQL Port for tigergraph instance | string  | 14240 |
 | -restPort | RestPP Port for tigergraph instance | string  | 9000 |
-| -default | y/n parameter to set this configuration as default box | string  | n |
+| -default | y/n parameter to set this configuration as default server | string  | n |
 
 
-## Delete a Machine/Box From Configuration
+## Delete a Machine/Server From Configuration
 
-`tg conf delete` deletes a box from the configuration store
+`tg conf delete` deletes a server from the configuration store
 
 ```
 usage: tg conf delete [-h] [-alias ALIAS]
 
 optional arguments:
   -h, --help    show this help message and exit
-  -alias ALIAS  the name used for referring to the tigergraph Box
+  -alias ALIAS  the name used for referring to the tigergraph Server
 
 
 ```
