@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'TigerGraph-CLI'
-copyright = '2021, TigerGraph'
+copyright = '2022, TigerGraph'
 author = 'TigerGraph'
 
 # The full version, including alpha/beta/rc tags
